@@ -4,85 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Kanika</title>
-
+    <title>Happy Birthday Kanika 💜</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- PAGE 1 -->
+<!-- BLACK OVERLAY -->
+<div id="blackFade"></div>
 
-    <div class="page active" id="page1">
+<!-- FLOATING BACKGROUND -->
+<div id="floating-container"></div>
 
-        <h2 class="gift-text">
-            Someone has a gift for you...
-        </h2>
+<!-- LOADER -->
+<div id="loader">
+    <h1>🎂</h1>
+    <h1>Dear Kanika</h1>
+    <p id="loadingText">Loading...</p>
 
-        <div class="gift-box" onclick="openGift()">
+    <div class="loading-bar">
+        <div id="progress"></div>
+    </div>
+</div>
 
-            <div class="lid"></div>
+<!-- PAGE 1 -->
+<div class="page" id="page1">
 
-            <div class="box"></div>
+    <h1 class="main-title">Happy Birthday<br>💜</h1>
 
-        </div>
+    <h3 class="subtitle">Tap the envelope 💌</h3>
 
-        <p class="click-hint">
-            Tap the gift 🎁
-        </p>
-
+    <div class="envelope-container" onclick="openEnvelope()">
+        <img id="envelopeImg" src="envelope.jpeg" class="envelope-img">
     </div>
 
-    <!-- PAGE 2 -->
+    <p class="hint">Open your surprise ✨</p>
 
-    <div class="page" id="page2">
+</div>
 
-        <h1>💌 A Letter For You</h1>
+<!-- PAGE 2 -->
+<div class="page" id="page2">
 
-        <p>
-            Dear Kanika,
-            <br><br>
-            This is where your message will go.
-            <br>
-            We will make it beautiful later.
-        </p>
+    <h1>💌 A Letter For You</h1>
 
-        <div class="buttons">
+    <p class="letter">
+        Dear Kanika,<br><br>
+        You are special ✨<br>
+        Hope this makes you smile 💜
+    </p>
 
-            <button onclick="prevPage(1)">
-                ← Back
-            </button>
-
-            <button onclick="nextPage(3)">
-                Next →
-            </button>
-
-        </div>
-
+    <div class="buttons">
+        <button onclick="nextPage(3)">Next →</button>
     </div>
 
-    <!-- PAGE 3 -->
+</div>
 
-    <div class="page" id="page3">
+<!-- PAGE 3 -->
+<div class="page" id="page3">
 
-        <h1>📸 Memory Gallery</h1>
+    <h1>📸 Memories</h1>
 
-        <p>
-            Photos and memories will come here later.
-        </p>
+    <p>We’ll add this later 💖</p>
 
-        <div class="buttons">
-
-            <button onclick="prevPage(2)">
-                ← Back
-            </button>
-
-        </div>
-
+    <div class="buttons">
+        <button onclick="nextPage(2)">← Back</button>
     </div>
 
-    <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
