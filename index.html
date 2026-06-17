@@ -12,7 +12,7 @@
 
 <div id="blackFade"></div>
 
-<!-- LOADER (PAGE 1 - your existing) -->
+<!-- LOADER -->
 <div id="loader">
     <p id="loadingText">Loading...</p>
 
@@ -21,72 +21,99 @@
     </div>
 </div>
 
-<!-- PAGE 2 - ENVELOPE -->
+<!-- PAGE 1 -->
 <div class="page" id="page1">
     <h1>Dear Kanika</h1>
+
     <img src="envelope.jpeg" id="envelopeImg" class="envelope-img" onclick="openEnvelope()">
-<h3>Tap the envelope</h3>
+
+    <h3>Tap the envelope</h3>
 </div>
 
-<!-- PAGE 3 - LETTER -->
+<!-- PAGE 2 -->
 <div class="page" id="page2">
-    <h1>💌 A Letter For You</h1>
-    <p class="letter">Dear Kanika... (your text)</p>
-    <button onclick="nextPage(3)">Next</button>
+
+    <div class="letter-container">
+
+        <h1 class="letter-title">💌 A Letter For You</h1>
+
+        <div id="textDisplay" class="text-display">
+            Click a card to read something...
+        </div>
+
+        <div class="card-grid">
+            <div class="card" onclick="showText(0)">When I miss you</div>
+            <div class="card" onclick="showText(1)">When you feel low</div>
+            <div class="card" onclick="showText(2)">Random thought</div>
+            <div class="card" onclick="showText(3)">Something I never said</div>
+        </div>
+
+    </div>
+
+    <button onclick="nextPage(3)">Next →</button>
 </div>
 
-<!-- PAGE 4 - MEMORIES -->
+<!-- PAGE 3 -->
 <div class="page" id="page3">
-    <h1>📸 Memories</h1>
+
+    <h1>📸 Memory Gallery</h1>
+
+    <!-- IMAGE VIEWER -->
+    <div class="memory-viewer">
+        <img id="memoryImg" src="1.webp" alt="memory">
+    </div>
+
+    <!-- CAPTION -->
+    <div id="memoryText" class="memory-text">
+        Every picture has a story...
+    </div>
+
+    <!-- SLIDER -->
+    <input type="range" min="0" max="6" value="0" id="memorySlider">
 
     <button onclick="nextPage(2)">Back</button>
     <button onclick="nextPage(4)">Next</button>
+
 </div>
 
-<!-- PAGE 5 -->
+<!-- PAGE 4 -->
 <div class="page" id="page4">
     <h1>🎂 Surprise Section</h1>
-
     <button onclick="nextPage(3)">Back</button>
     <button onclick="nextPage(5)">Next</button>
 </div>
 
-<!-- PAGE 6 -->
+<!-- PAGE 5 -->
 <div class="page" id="page5">
     <h1>💖 Things I Like About You</h1>
-
     <button onclick="nextPage(4)">Back</button>
     <button onclick="nextPage(6)">Next</button>
 </div>
 
-<!-- PAGE 7 -->
+<!-- PAGE 6 -->
 <div class="page" id="page6">
     <h1>😂 Funny Memories</h1>
-
     <button onclick="nextPage(5)">Back</button>
     <button onclick="nextPage(7)">Next</button>
 </div>
 
-<!-- PAGE 8 -->
+<!-- PAGE 7 -->
 <div class="page" id="page7">
     <h1>🎵 Music & Vibes</h1>
-
     <button onclick="nextPage(6)">Back</button>
     <button onclick="nextPage(8)">Next</button>
 </div>
 
-<!-- PAGE 9 -->
+<!-- PAGE 8 -->
 <div class="page" id="page8">
     <h1>🌈 Final Message</h1>
-
     <button onclick="nextPage(7)">Back</button>
     <button onclick="nextPage(9)">Next</button>
 </div>
 
-<!-- PAGE 10 (FINAL REAL PAGE 9 CONTENT) -->
+<!-- PAGE 9 -->
 <div class="page" id="page9">
     <h1>💖 Happy Birthday Kanika</h1>
-
     <p>End message here...</p>
 
     <button onclick="nextPage(8)">Back</button>
