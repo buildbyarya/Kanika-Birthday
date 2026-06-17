@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Kanika</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- PAGE 1 -->
+
+    <div class="page active" id="page1">
+
+        <h1>🎉 Happy Birthday Kanika 🎉</h1>
+
+        <p>
+            I made something special for you...
+        </p>
+
+        <button onclick="nextPage(2)">
+            Open Gift 🎁
+        </button>
+
+    </div>
+
+    <!-- PAGE 2 -->
+
+    <div class="page" id="page2">
+
+        <h1>💌 A Letter For You</h1>
+
+        <p>
+            Dear Kanika,
+            <br><br>
+            This is where your message will go.
+            <br>
+            We will make it beautiful later.
+        </p>
+
+        <div class="buttons">
+
+            <button onclick="prevPage(1)">
+                ← Back
+            </button>
+
+            <button onclick="nextPage(3)">
+                Next →
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- PAGE 3 -->
+
+    <div class="page" id="page3">
+
+        <h1>📸 Memory Gallery</h1>
+
+        <p>
+            Photos and memories will come here later.
+        </p>
+
+        <div class="buttons">
+
+            <button onclick="prevPage(2)">
+                ← Back
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
