@@ -42,14 +42,18 @@ function nextPage(n){
         p.classList.remove("active");
     });
 
-    document.getElementById("page"+n).classList.add("active");
+    const page = document.getElementById("page"+n);
+    page.classList.add("active");
 
-    // 💜 HEART CONTROL
+    // 💜 FIXED HEART SYSTEM TRIGGER
     if(n === 2){
         startHearts();
     } else {
         stopHearts();
     }
+
+    // mobile safety reset
+    window.scrollTo(0,0);
 }
 
 
@@ -63,15 +67,20 @@ function openEnvelope(){
 
     setTimeout(() => {
         black.classList.add("active");
-    }, 1400);
+    }, 1200);
 
     setTimeout(() => {
-        nextPage(2);
-    }, 2000);
+        nextPage(2);   // Page 2 opens here
+    }, 1800);
 
     setTimeout(() => {
         black.classList.remove("active");
-    }, 2600);
+    }, 2400);
+
+    // 💜 ensure hearts start even if timing shifts
+    setTimeout(() => {
+        startHearts();
+    }, 2000);
 }
 
 
@@ -104,7 +113,7 @@ function showText(i){
 }
 
 
-// ================= ❤️ HEART SYSTEM =================
+// ================= ❤️ HEART SYSTEM (FIXED) =================
 
 let heartInterval = null;
 
@@ -123,7 +132,10 @@ function startHearts(){
         const emojis = ["💖","💜","💕","💗","💘"];
         heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
-        heart.style.left = Math.random() * 100 + "vw";
+        // FIXED POSITIONING (mobile-safe)
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = "90vh";
+
         heart.style.fontSize = (16 + Math.random() * 20) + "px";
 
         document.body.appendChild(heart);
@@ -139,7 +151,7 @@ function stopHearts(){
 }
 
 
-// ================= PAGE 3 MEMORY SLIDER DATA =================
+// ================= PAGE 3 MEMORY SLIDER =================
 
 const memoryImages = [
     "1.webp",
@@ -161,9 +173,6 @@ const memoryTexts = [
     "And this… this is one of my favorite memories of all."
 ];
 
-
-// ================= PAGE 3 INITIALISE + CINEMATIC EFFECTS =================
-
 window.addEventListener("DOMContentLoaded", () => {
 
     const slider = document.getElementById("memorySlider");
@@ -172,7 +181,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (!slider || !img || !text) return;
 
-    // 🎬 SLIDER WITH CINEMATIC FADE
     slider.addEventListener("input", function () {
 
         let i = this.value;
@@ -189,17 +197,18 @@ window.addEventListener("DOMContentLoaded", () => {
             img.style.opacity = 1;
             text.style.opacity = 1;
 
-        }, 200);
+        }, 150);
     });
 
 });
 
 
-// ================= 🌫️ PAGE 3 FLOATING PARTICLES =================
+// ================= 🌫️ PAGE 3 PARTICLES =================
 
 function createParticles(){
 
     const page3 = document.getElementById("page3");
+
     if(!page3 || !page3.classList.contains("active")) return;
 
     for(let i=0;i<3;i++){
