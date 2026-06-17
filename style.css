@@ -20,6 +20,7 @@ body {
     align-items: center;
 
     text-align: center;
+
     padding: 30px;
 }
 
@@ -27,19 +28,30 @@ body {
     display: flex;
 }
 
+/* PAGE 1 */
+
 #page1 {
-    background: #ffd6e8;
+    background: linear-gradient(
+        135deg,
+        #ff9ec4,
+        #ffc8dd
+    );
 }
+
+/* PAGE 2 */
 
 #page2 {
     background: #fff0f5;
 }
 
+/* PAGE 3 */
+
 #page3 {
     background: #ffe4b5;
 }
 
-h1 {
+h1,
+h2 {
     margin-bottom: 20px;
 }
 
@@ -66,4 +78,67 @@ button {
 .buttons {
     display: flex;
     gap: 15px;
+}
+
+/* GIFT BOX */
+
+.gift-text {
+    margin-bottom: 40px;
+}
+
+.gift-box {
+
+    position: relative;
+
+    width: 180px;
+
+    height: 180px;
+
+    cursor: pointer;
+}
+
+.box {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 180px;
+
+    height: 120px;
+
+    background: #ff4d6d;
+
+    border-radius: 10px;
+}
+
+.lid {
+
+    position: absolute;
+
+    top: 40px;
+
+    width: 180px;
+
+    height: 40px;
+
+    background: #c9184a;
+
+    border-radius: 10px;
+
+    transition: 1s;
+}
+
+.gift-box.open .lid {
+
+    transform:
+        translateY(-80px)
+        rotate(-20deg);
+}
+
+.click-hint {
+
+    margin-top: 40px;
+
+    font-size: 18px;
 }

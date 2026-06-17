@@ -19,3 +19,16 @@ function prevPage(pageNumber) {
         .getElementById("page" + pageNumber)
         .classList.add("active");
 }
+
+function openGift() {
+
+    let gift = document.querySelector(".gift-box");
+
+    gift.classList.add("open");
+
+    setTimeout(() => {
+
+        nextPage(2);
+
+    }, 1500);
+}
