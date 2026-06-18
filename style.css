@@ -944,6 +944,8 @@ html,body{
 
     overflow-x:hidden;
 
+    min-height:0;
+
     padding:15px;
 
     display:flex;
@@ -1104,6 +1106,8 @@ html,body{
 
 .ig-options{
 
+    flex-shrink:0;
+
     display:flex;
 
     flex-wrap:wrap;
@@ -1113,10 +1117,6 @@ html,body{
     gap:10px;
 
     padding:15px;
-
-    background:transparent;
-
-    border-top:none;
 }
 
 .ig-btn{
