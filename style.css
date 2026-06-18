@@ -227,16 +227,21 @@ html,body{
 
 /* ================= PAGE 3 : TEXTBOX ================= */
 
+/* ================= PAGE 3 ================= */
+
 #page3{
+
     position:fixed;
     inset:0;
 
     display:none;
     flex-direction:column;
-    justify-content:center;
+
+    justify-content:flex-start;
+
     align-items:center;
 
-    padding:25px;
+    padding:15px;
 
     background:linear-gradient(
         135deg,
@@ -247,13 +252,16 @@ html,body{
 
     color:#5a2140;
 
-    overflow:hidden;
+    overflow-y:auto;
 }
 
 /* SOFT GLOW BLOBS */
+
 #page3::before,
 #page3::after{
+
     content:"";
+
     position:absolute;
 
     width:300px;
@@ -269,6 +277,7 @@ html,body{
 }
 
 #page3::before{
+
     background:#ffb3c7;
 
     top:-100px;
@@ -276,32 +285,44 @@ html,body{
 }
 
 #page3::after{
+
     background:#ffd6e7;
 
     bottom:-100px;
     right:-80px;
 }
 
-/* KEEP CONTENT ABOVE BLOBS */
+/* CONTENT ABOVE BACKGROUND */
+
 #page3 > *{
+
     position:relative;
+
     z-index:2;
 }
 
 /* TITLE */
+
 .page3-title{
-    font-size:34px;
-    margin-bottom:30px;
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
     text-align:center;
 }
 
 /* TEXT BOX */
-.text-display{
-    width:90%;
-    max-width:600px;
-    min-height:150px;
 
-    padding:25px;
+.text-display{
+
+    width:95%;
+
+    max-width:600px;
+
+    min-height:120px;
+
+    padding:20px;
 
     border-radius:20px;
 
@@ -312,26 +333,33 @@ html,body{
     box-shadow:
         0 8px 25px rgba(0,0,0,.1);
 
-    font-size:18px;
-    line-height:1.7;
+    font-size:16px;
 
-    margin-bottom:30px;
+    line-height:1.6;
+
+    margin-bottom:20px;
 }
 
 /* CARD GRID */
+
 .card-grid{
-    width:90%;
+
+    width:95%;
+
     max-width:650px;
 
     display:grid;
-    grid-template-columns:repeat(2,1fr);
 
-    gap:15px;
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
 }
 
 /* CARDS */
+
 .card{
-    padding:18px;
+
+    padding:15px;
 
     border-radius:18px;
 
@@ -344,108 +372,53 @@ html,body{
     cursor:pointer;
 
     transition:.3s;
+
+    font-size:14px;
 }
 
 .card:hover{
-    transform:translateY(-5px);
+
+    transform:translateY(-3px);
 
     background:rgba(255,255,255,.8);
 }
 
-/* NEXT BUTTON */
-.page3-next{
-    margin-top:30px;
+/* BUTTON AREA */
 
-    padding:14px 30px;
-
-    border:none;
-    border-radius:15px;
-
-    background:linear-gradient(
-        135deg,
-        #ff8ab5,
-        #ff5d8f
-    );
-
-    color:white;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.page3-next:hover{
-    transform:scale(1.05);
-}
-/* SPACE BETWEEN CARDS AND BUTTONS */
 .page3-nav{
 
-    margin-top:50px;
+    margin-top:20px;
+
+    margin-bottom:20px;
 
     display:flex;
-    gap:30px;
 
     justify-content:center;
-    align-items:center;
+
+    width:100%;
 }
-
-
-/* BUTTONS */
-.nav-btn{
-
-    min-width:140px;
-
-    padding:16px 28px;
-
-    border-radius:30px;
-
-    text-align:center;
-
-    color:white;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.15);
-
-}
-
-
-/* SPACE BETWEEN CARDS AND BUTTON */
-.page3-nav{
-
-    margin-top:60px;
-
-    display:flex;
-    justify-content:center;
-}
-
 
 /* CONTINUE BUTTON */
+
 .next-btn{
 
-    padding:18px 40px;
+    padding:14px 28px;
 
     border-radius:40px;
 
     background:linear-gradient(
-    135deg,
-    #ff7eb3,
-    #ff4d8d,
-    #6a5cff
+        135deg,
+        #ff7eb3,
+        #ff4d8d,
+        #6a5cff
     );
 
     background-size:200% 200%;
 
     color:white;
 
-    font-size:18px;
+    font-size:16px;
+
     font-weight:bold;
 
     cursor:pointer;
@@ -458,15 +431,12 @@ html,body{
     animation:buttonGlow 4s linear infinite;
 }
 
-
 .next-btn:hover{
 
     transform:
-    translateY(-5px)
-    scale(1.05);
-
+    translateY(-3px)
+    scale(1.03);
 }
-
 
 @keyframes buttonGlow{
 
@@ -481,10 +451,7 @@ html,body{
     100%{
         background-position:0% 50%;
     }
-
-}
-
-/* ================= PAGE 4 ================= */
+}/* ================= PAGE 4 ================= */
 
 #page4{
     position:fixed;
