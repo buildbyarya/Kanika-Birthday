@@ -340,6 +340,12 @@ function aryaChat(choice){
                 Why?
             </div>
         `;
+        // MOBILE FIX
+setTimeout(() => {
+
+    chat.scrollTop = chat.scrollHeight;
+
+}, 100);
 
         aryaStep = 1;
     }
@@ -452,13 +458,16 @@ function addChat(userText, botText){
 
     setTimeout(()=>{
 
-        chat.innerHTML += `
-            <div class="msg bot">${botText}</div>
-        `;
+    chat.innerHTML += `
+        <div class="msg bot">
+            ${reply}
+        </div>
+    `;
 
-        chat.scrollTop = chat.scrollHeight;
+    // AUTO SCROLL TO BOTTOM
+    chat.scrollTop = chat.scrollHeight;
 
-    },700);
+},700);
 }
 function toggleStory(note){
 
