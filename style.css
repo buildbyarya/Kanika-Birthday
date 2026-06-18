@@ -687,8 +687,6 @@ html,body{
 
 #page5{
 
-    z-index:40;
-
     display:none;
 
     flex-direction:column;
@@ -701,11 +699,7 @@ html,body{
 
     color:white;
 
-    overflow-y:auto;
-
-    overflow-x:hidden;
-
-    -webkit-overflow-scrolling:touch;
+    overflow:hidden;
 }
 /* PAGE 5 */
 
@@ -795,6 +789,8 @@ html,body{
 .chat-list{
 
     flex:1;
+
+    min-height:0;
 
     overflow-y:auto;
 
@@ -1327,4 +1323,11 @@ html,body{
 .page6-buttons button:last-child{
 
     background:#ec4899;
+}
+.ig-topbar,
+.ig-search,
+.ig-notes,
+.msg-header{
+
+    flex-shrink:0;
 }
