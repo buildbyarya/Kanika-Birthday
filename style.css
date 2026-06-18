@@ -552,11 +552,11 @@ html,body{
     position:relative;
     z-index:2;
 
-    width:90%;
+    width:88vw;
 
-    max-width:380px;
+    height:32vh;
 
-    height:220px;
+    max-width:none;
 
     border-radius:25px;
 
