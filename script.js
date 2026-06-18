@@ -13,20 +13,16 @@ function showUI(){
 // SINGLE MASTER PAGE CONTROLLER (KEEP ONLY THIS ONE)
 function showPage(pageId){
 
-    const player = document.getElementById("musicPlayer");
-
-    if(player){
-        player.pause();
-        player.currentTime = 0;
-    }
-
     document.querySelectorAll(".page").forEach(page=>{
+
         page.style.display = "none";
+
     });
 
-    let target = document.getElementById(pageId);
+    const target = document.getElementById(pageId);
 
     if(target){
+
         target.style.display = "flex";
     }
 }
@@ -492,6 +488,19 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
 
 });
+function openStory(img){
+
+    document.getElementById("storyImage").src = img;
+
+    document.getElementById("storyOverlay")
+    .classList.add("active");
+}
+
+function closeStory(){
+
+    document.getElementById("storyOverlay")
+    .classList.remove("active");
+}
 function revealSecret(){
 
     const chat = document.querySelector("#page5_6 .chat-body");

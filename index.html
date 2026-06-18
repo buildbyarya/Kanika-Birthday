@@ -134,7 +134,6 @@
 
 </div>
 
-<!-- ================= PAGE 5 ================= -->
 <!-- ================= PAGE 5 : INSTAGRAM INBOX ================= -->
 
 <div class="page" id="page5">
@@ -147,7 +146,7 @@
         </div>
 
         <div class="ig-title">
-            buildbyarya
+            buildbyarya v
         </div>
 
         <div class="ig-icons">
@@ -168,36 +167,28 @@
     <!-- NOTES -->
     <div class="ig-notes">
 
-    <div class="note" onclick="toggleStory(this)">
-
-        <img src="arya.jpg">
-
+    <div class="note">
+        <img src="arya.jpg" onclick="openStory('arya_story.jpg')">
         <span>Arya</span>
-
     </div>
 
-    <div class="note" onclick="toggleStory(this)">
-
-        <img src="person2.jpg">
-
+    <div class="note">
+        <img src="friend1.jpg" onclick="openStory('friend1_story.jpg')">
         <span>Friend 1</span>
-
     </div>
 
-    <div class="note" onclick="toggleStory(this)">
-
-        <img src="person3.jpg">
-
+    <div class="note">
+        <img src="friend2.jpg" onclick="openStory('friend2_story.jpg')">
         <span>Friend 2</span>
+    </div>
 
+    <div class="note">
+        <img src="friend3.jpg" onclick="openStory('friend3_story.jpg')">
+        <span>Friend 3</span>
     </div>
 
 </div>
-<div id="storyOverlay">
 
-    <img id="storyImage">
-
-</div>
     <!-- MESSAGE HEADER -->
 
     <div class="msg-header">
@@ -216,69 +207,102 @@
 
     <!-- CHAT LIST -->
 
-    <div
-    class="chat-row"
-    onclick="showPage('page5_1')">
+    <div class="chat-row" onclick="showPage('page5_1')">
+
+    <div class="chat-avatar">
+        <img src="arya.jpg">
+    </div>
+
+    <div class="chat-info">
 
         <div class="chat-name">
             Arya 💜
         </div>
 
         <div class="chat-preview">
-            Hey... I was waiting for you 💜
+            Tap to open chat...
         </div>
 
     </div>
 
+    <div class="unread-dot"></div>
 
-    <div
-    class="chat-row"
-    onclick="showPage('page5_2')">
+</div>
+
+
+<div class="chat-row" onclick="showPage('page5_2')">
+
+    <div class="chat-avatar">
+        <img src="friend1.jpg">
+    </div>
+
+    <div class="chat-info">
 
         <div class="chat-name">
             Random Chat 1
         </div>
 
         <div class="chat-preview">
-            Placeholder message...
+            Sent a message
         </div>
 
     </div>
 
+    <div class="unread-dot"></div>
 
-    <div
-    class="chat-row"
-    onclick="showPage('page5_3')">
+</div>
+
+
+<div class="chat-row" onclick="showPage('page5_3')">
+
+    <div class="chat-avatar">
+        <img src="friend2.jpg">
+    </div>
+
+    <div class="chat-info">
 
         <div class="chat-name">
             Random Chat 2
         </div>
 
         <div class="chat-preview">
-            Placeholder message...
+            Sent a message
         </div>
 
     </div>
 
+    <div class="unread-dot"></div>
 
-    <div
-    class="chat-row"
-    onclick="showPage('page5_4')">
+</div>
+
+
+<div class="chat-row" onclick="showPage('page5_4')">
+
+    <div class="chat-avatar">
+        <img src="friend3.jpg">
+    </div>
+
+    <div class="chat-info">
 
         <div class="chat-name">
             Random Chat 3
         </div>
 
         <div class="chat-preview">
-            Placeholder message...
+            Sent a message
         </div>
 
     </div>
 
+    <div class="unread-dot"></div>
+
 </div>
+</div>
+<div id="storyOverlay">
 
+    <img id="storyImage">
 
-
+</div>
 <!-- ================= PAGE 5.1 : ARYA CHAT ================= -->
 
 <div class="page" id="page5_1">

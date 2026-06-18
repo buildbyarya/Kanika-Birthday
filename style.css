@@ -702,16 +702,26 @@ html,body{
 
 /* PAGE 5 */
 
-#page5,
 #page5_1,
 #page5_2,
 #page5_3,
 #page5_4,
-#page5_5{
+#page5_5,
+#page5_6{
+
     display:none;
+
     flex-direction:column;
+
+    width:100vw;
+
+    height:100vh;
+
     background:#0c0c0f;
+
     color:white;
+
+    overflow:hidden;
 }
 
 /* TOP BAR */
@@ -804,7 +814,77 @@ html,body{
 
     transition:.25s;
 }
+/* CHAT ROW LAYOUT */
 
+.chat-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px 18px;
+
+    border-bottom:1px solid #222;
+
+    cursor:pointer;
+}
+
+
+/* PROFILE PIC */
+
+.chat-avatar img{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+}
+
+
+/* CHAT TEXT */
+
+.chat-info{
+
+    flex:1;
+}
+
+.chat-name{
+
+    font-weight:600;
+
+    font-size:15px;
+}
+
+.chat-preview{
+
+    color:#aaa;
+
+    font-size:13px;
+
+    margin-top:2px;
+}
+
+
+/* UNREAD DOT */
+
+.unread-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#0095f6;
+
+    box-shadow:
+    0 0 10px #0095f6;
+}
 .chat-row:hover{
     background:#181818;
 }
