@@ -668,3 +668,28 @@ function secretSong(id){
 
     },3000);
 }
+function showPage(pageId){
+
+    // STOP MUSIC WHEN LEAVING PAGE 6
+    const player = document.getElementById("musicPlayer");
+
+    if(player){
+
+        player.pause();
+
+        player.currentTime = 0;
+    }
+
+    document.querySelectorAll(".page").forEach(page=>{
+
+        page.style.display = "none";
+
+    });
+
+    let target = document.getElementById(pageId);
+
+    if(target){
+
+        target.style.display = "flex";
+    }
+}

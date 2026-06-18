@@ -1152,6 +1152,31 @@ html,body{
 
     background-position:center;
 }
+}
+.ig-topbar,
+.ig-search,
+.ig-notes,
+.msg-header{
+
+    flex-shrink:0;
+}
+#page5_1,
+#page5_2,
+#page5_3,
+#page5_5,
+#page5_6{
+
+    height:100dvh;
+}
+
+.chat-body{
+
+    flex:1;
+
+    min-height:0;
+
+    overflow-y:auto;
+}
 /* ================= PAGE 6 ================= */
 
 #page6{
@@ -1181,20 +1206,6 @@ html,body{
     margin:20px;
 }
 
-/* SONG GRID */
-
-.song-grid{
-
-    width:90%;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:12px;
-}
 
 .song-box{
 
@@ -1262,7 +1273,7 @@ html,body{
 
 .secret3{
     top:60%;
-    right:18%;
+    left:18%;
 }
 
 .normal3{
@@ -1287,63 +1298,144 @@ html,body{
         transform:scale(1.2);
     }
 }
+/* PAGE 6 */
+
+#page6{
+
+    position:fixed;
+    inset:0;
+
+    display:none;
+    flex-direction:column;
+    align-items:center;
+
+    padding:20px;
+
+    overflow:hidden;
+
+    background-size:cover;
+    background-position:center;
+}
+
+/* TITLE */
+
+.music-title{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:32px;
+
+    z-index:10;
+}
+
+/* SONG GRID */
+
 .song-grid{
 
     width:90%;
+    max-width:450px;
 
-    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+    margin-top:40px;
+
+    z-index:10;
+}
+
+/* SONG BOX */
+
+.song-box{
+
+    padding:22px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.song-box:hover{
+
+    transform:scale(1.05);
+}
+
+/* NAVIGATION */
+
+.song-nav{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
 
     display:flex;
 
-    flex-direction:column;
+    gap:20px;
 
-    gap:15px;
+    z-index:100;
 }
-.page6-buttons button{
 
-    padding:12px 25px;
+/* BUTTONS */
+
+.song-prev,
+.song-next{
 
     border:none;
 
-    border-radius:25px;
+    padding:14px 28px;
 
-    color:white;
+    border-radius:18px;
+
+    font-size:16px;
 
     font-weight:bold;
 
     cursor:pointer;
+
+    color:white;
+
+    transition:.3s;
 }
 
-.page6-buttons button:first-child{
+.song-prev{
 
-    background:#7c3aed;
+    background:linear-gradient(
+        135deg,
+        #6a5cff,
+        #8a7dff
+    );
 }
 
-.page6-buttons button:last-child{
+.song-next{
 
-    background:#ec4899;
-}
-.ig-topbar,
-.ig-search,
-.ig-notes,
-.msg-header{
-
-    flex-shrink:0;
-}
-#page5_1,
-#page5_2,
-#page5_3,
-#page5_5,
-#page5_6{
-
-    height:100dvh;
+    background:linear-gradient(
+        135deg,
+        #ff6fa5,
+        #ff4d8d
+    );
 }
 
-.chat-body{
+.song-prev:hover,
+.song-next:hover{
 
-    flex:1;
-
-    min-height:0;
-
-    overflow-y:auto;
+    transform:scale(1.05);
 }
