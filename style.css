@@ -453,19 +453,28 @@ html,body{
     }
 }/* ================= PAGE 4 ================= */
 
+/* ================= PAGE 4 ================= */
+
 #page4{
+
     position:fixed;
     inset:0;
 
     display:none;
 
     flex-direction:column;
-    justify-content:center;
+
+    justify-content:flex-start;
+
     align-items:center;
 
-    gap:25px;
+    padding-top:15px;
 
-    overflow:hidden;
+    padding-bottom:20px;
+
+    gap:12px;
+
+    overflow-y:auto;
 
     background:
     radial-gradient(circle at top,#1d2b64 0%,#0b1026 40%,#050814 100%);
@@ -473,6 +482,7 @@ html,body{
 
 
 /* STARS */
+
 #page4::before{
 
     content:"";
@@ -499,7 +509,8 @@ html,body{
 }
 
 
-/* TWINKLE ANIMATION */
+/* TWINKLE */
+
 @keyframes twinkle{
 
     0%{
@@ -513,11 +524,11 @@ html,body{
     100%{
         opacity:.5;
     }
-
 }
 
 
 /* TITLE */
+
 .page4-title{
 
     position:relative;
@@ -525,24 +536,27 @@ html,body{
 
     color:white;
 
-    font-size:34px;
+    font-size:26px;
+
+    text-align:center;
 
     text-shadow:
     0 0 20px rgba(255,255,255,.7);
-
 }
 
 
 /* IMAGE BOX */
+
 .memory-viewer{
 
     position:relative;
     z-index:2;
 
     width:90%;
-    max-width:450px;
 
-    height:320px;
+    max-width:380px;
+
+    height:220px;
 
     border-radius:25px;
 
@@ -558,6 +572,7 @@ html,body{
 
 
 /* IMAGE */
+
 .memory-viewer img{
 
     width:100%;
@@ -569,18 +584,20 @@ html,body{
 }
 
 
-/* TEXT BOX */
+/* TEXT */
+
 .memory-text{
 
     position:relative;
     z-index:2;
 
-    width:85%;
-    max-width:500px;
+    width:90%;
 
-    min-height:100px;
+    max-width:450px;
 
-    padding:20px;
+    min-height:70px;
+
+    padding:15px;
 
     border-radius:20px;
 
@@ -590,9 +607,11 @@ html,body{
 
     color:white;
 
-    line-height:1.8;
+    line-height:1.5;
 
     text-align:center;
+
+    font-size:15px;
 
     box-shadow:
     0 0 30px rgba(255,255,255,.1);
@@ -600,59 +619,70 @@ html,body{
 
 
 /* SLIDER */
+
 #memorySlider{
 
     position:relative;
     z-index:2;
 
-    width:80%;
+    width:85%;
 
     accent-color:#ff7eb3;
 }
- .page4-buttons{
-    position:absolute;
-    bottom:30px;
-    width:100%;
+
+
+/* BUTTONS */
+
+.page4-buttons{
+
+    position:relative;
+
+    width:90%;
+
+    max-width:450px;
 
     display:flex;
-    justify-content:center;
-    gap:30px;
+
+    justify-content:space-between;
+
+    margin-top:10px;
 
     z-index:50;
 }
 
+
 .page4-prev-btn,
 .page4-next-btn{
-    padding:14px 24px;
+
+    padding:12px 22px;
+
     border:none;
+
     border-radius:30px;
 
     cursor:pointer;
-    font-size:16px;
+
+    font-size:15px;
+
     font-weight:bold;
 
     background:rgba(255,255,255,0.15);
+
     color:white;
 
     backdrop-filter:blur(10px);
-    transition:0.3s;
+
+    transition:.3s;
 }
+
 
 .page4-prev-btn:hover,
 .page4-next-btn:hover{
+
     transform:scale(1.05);
+
     background:rgba(255,255,255,0.3);
 }
-#page4{
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:20px;
-    padding-bottom:80px; /* important space for buttons */
-}
-
-
 /* ================= PAGE 5 ================= */
 
 #page5{
