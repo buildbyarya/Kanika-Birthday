@@ -1,5 +1,40 @@
-// ================= LOADER =================
-window.onload = function(){
+// ================= EXTRAS =================
+function hideUI(){
+    document.querySelectorAll(".nav-btn, .page3-nav").forEach(el=>{
+        el.classList.add("hidden-ui");
+    });
+}
+
+function showUI(){
+    document.querySelectorAll(".nav-btn, .page3-nav").forEach(el=>{
+        el.classList.remove("hidden-ui");
+    });
+}
+// SINGLE MASTER PAGE CONTROLLER (KEEP ONLY THIS ONE)
+function showPage(pageId){
+
+    const player = document.getElementById("musicPlayer");
+
+    if(player){
+        player.pause();
+        player.currentTime = 0;
+    }
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.style.display = "none";
+    });
+
+    let target = document.getElementById(pageId);
+
+    if(target){
+        target.style.display = "flex";
+    }
+}
+
+
+// ================= PAGE 1 : LOADER =================
+
+window.onload = function () {
 
     let messages = [
         "📸 Collecting memories...",
@@ -12,100 +47,134 @@ window.onload = function(){
     let progress = document.getElementById("progress");
 
     let i = 0;
-    let p = 0;
+    let value = 0;
 
     let interval = setInterval(() => {
 
         text.innerText = messages[i];
-        p += 25;
-        progress.style.width = p + "%";
+
+        value += 25;
+        progress.style.width = value + "%";
 
         i++;
 
-        if(i >= messages.length){
+        if (i >= messages.length) {
+
             clearInterval(interval);
 
             setTimeout(() => {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("page1").classList.add("active");
-            }, 600);
+
+                let loader = document.getElementById("loader");
+
+                loader.style.transition = "0.8s ease";
+                loader.style.opacity = "0";
+
+                setTimeout(() => {
+
+                    loader.style.display = "none";
+
+                    // ✅ START FLOW HERE
+                    showPage("page2");
+
+                }, 800);
+
+            }, 500);
+
         }
 
     }, 700);
+
 };
 
 
-// ================= PAGE NAVIGATION =================
-function nextPage(n){
+// ================= PAGE 2 ENVELOPE =================
 
-    document.querySelectorAll(".page").forEach(p => {
-        p.classList.remove("active");
-    });
-
-    const page = document.getElementById("page"+n);
-    page.classList.add("active");
-
-    // 💜 FIXED HEART SYSTEM TRIGGER
-    if(n === 2){
-        startHearts();
-    } else {
-        stopHearts();
-    }
-
-    // mobile safety reset
-    window.scrollTo(0,0);
-}
-
-
-// ================= ENVELOPE ANIMATION =================
 function openEnvelope(){
 
-    let img = document.getElementById("envelopeImg");
+    let envelope = document.getElementById("envelopeImg");
+    let page2 = document.getElementById("page2");
     let black = document.getElementById("blackFade");
 
-    img.classList.add("zoom");
+    // 🔴 LOCK EVERYTHING IMMEDIATELY
+    hideUI();
 
-    setTimeout(() => {
-        black.classList.add("active");
-    }, 1200);
+    // prevent multiple clicks (IMPORTANT FIX)
+    envelope.onclick = null;
 
-    setTimeout(() => {
-        nextPage(2);   // Page 2 opens here
-    }, 1800);
+    // start animation
+    envelope.classList.add("zoom");
+    page2.classList.add("fade");
 
+    // 🔴 INSTANT BLACK (no delay = no flash)
+    black.classList.add("active");
+
+    // 🔴 SWITCH PAGE WHILE SCREEN IS 100% BLACK
     setTimeout(() => {
+
+        showPage("page3");
+
+    }, 600);
+
+    // 🔴 REMOVE BLACK AFTER PAGE IS READY
+    setTimeout(() => {
+
         black.classList.remove("active");
-    }, 2400);
 
-    // 💜 ensure hearts start even if timing shifts
-    setTimeout(() => {
-        startHearts();
-    }, 2000);
+        // restore UI AFTER everything is stable
+        setTimeout(() => {
+            showUI();
+        }, 300);
+
+    }, 1200);
 }
 
 
-// ================= PAGE 2 TEXT SYSTEM =================
+// ================= PAGE 3 TEXTBOX =================
+
 const texts = [
-    "I miss you in ways I can't explain...",
-    "You're stronger than you think...",
-    "Random thought: you're special in my life...",
-    "Some things I never said but always felt..."
+
+`I miss you in ways I can't really explain.
+Sometimes even the smallest things remind me of you.
+And somehow, that makes my day brighter.`,
+
+`Whenever you feel low,
+remember that you are stronger than you think.
+And no matter what happens,
+you deserve happiness and peace. 💜`,
+
+`Random thought:
+Life becomes prettier when certain people become part of it.
+Thank you for being one of those people.`,
+
+`Some things are difficult to say out loud.
+But I hope you always know how much I appreciate you,
+and how special you are to me. ✨`
+
 ];
 
-function showText(i){
+let typingTimeout;
 
-    let display = document.getElementById("textDisplay");
+function showText(index){
 
-    display.innerHTML = "";
+    let box = document.getElementById("textDisplay");
 
-    let text = texts[i];
-    let x = 0;
+    clearTimeout(typingTimeout);
+
+    box.innerHTML = "";
+
+    let message = texts[index];
+    let i = 0;
 
     function type(){
-        if(x < text.length){
-            display.innerHTML += text.charAt(x);
-            x++;
-            setTimeout(type, 30);
+
+        if(i < message.length){
+
+            box.innerHTML += message.charAt(i);
+
+            i++;
+
+            typingTimeout = setTimeout(type,25);
+
         }
     }
 
@@ -113,45 +182,19 @@ function showText(i){
 }
 
 
-// ================= ❤️ HEART SYSTEM (FIXED) =================
+// ================= PAGE NAVIGATION =================
 
-let heartInterval = null;
-
-function startHearts(){
-
-    if(heartInterval) return;
-
-    heartInterval = setInterval(() => {
-
-        let page2 = document.getElementById("page2");
-        if(!page2.classList.contains("active")) return;
-
-        let heart = document.createElement("div");
-        heart.classList.add("heart");
-
-        const emojis = ["💖","💜","💕","💗","💘"];
-        heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-
-        // FIXED POSITIONING (mobile-safe)
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.top = "90vh";
-
-        heart.style.fontSize = (16 + Math.random() * 20) + "px";
-
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 5000);
-
-    }, 450);
+// SAFE NAVIGATION ONLY (NO DIRECT DOM CHANGES)
+function goToPage4(){
+    showPage("page4");
 }
 
-function stopHearts(){
-    clearInterval(heartInterval);
-    heartInterval = null;
+function goToPage5(){
+    showPage("page5");
 }
 
 
-// ================= PAGE 3 MEMORY SLIDER =================
+// ================= PAGE 4 MEMORY GALLERY =================
 
 const memoryImages = [
     "1.webp",
@@ -166,67 +209,444 @@ const memoryImages = [
 const memoryTexts = [
     "Every picture has a story...",
     "That day still feels like a memory I can replay in my head.",
-    "We didn’t realize it then, but this moment mattered a lot.",
+    "We didn't realize it then, but this moment mattered a lot.",
     "One of those random days that became unforgettable.",
-    "Smiles that I’ll always remember.",
+    "Smiles that I'll always remember.",
     "A moment I wish I could freeze forever.",
     "And this… this is one of my favorite memories of all."
 ];
 
-window.addEventListener("DOMContentLoaded", () => {
 
-    const slider = document.getElementById("memorySlider");
-    const img = document.getElementById("memoryImg");
-    const text = document.getElementById("memoryText");
+window.addEventListener("DOMContentLoaded",()=>{
 
-    if (!slider || !img || !text) return;
+    let slider = document.getElementById("memorySlider");
 
-    slider.addEventListener("input", function () {
+    if(!slider) return;
 
-        let i = this.value;
+    slider.addEventListener("input",function(){
 
-        // fade out
+        let i = Number(this.value);
+
+        let img = document.getElementById("memoryImg");
+        let text = document.getElementById("memoryText");
+
         img.style.opacity = 0;
         text.style.opacity = 0;
 
-        setTimeout(() => {
+        setTimeout(()=>{
+
             img.src = memoryImages[i];
             text.innerText = memoryTexts[i];
 
-            // fade in
             img.style.opacity = 1;
             text.style.opacity = 1;
 
-        }, 150);
+        },200);
+
     });
 
 });
 
+// ================= PAGE 5 insta ui =================
 
-// ================= 🌫️ PAGE 3 PARTICLES =================
 
-function createParticles(){
+let chatState = 0;
 
-    const page3 = document.getElementById("page3");
+function openAryaChat(){
 
-    if(!page3 || !page3.classList.contains("active")) return;
+    document.getElementById("page5Menu").style.display = "none";
+    document.getElementById("chatScreen").style.display = "flex";
+}
 
-    for(let i=0;i<3;i++){
+function backToMenu(){
 
-        let p = document.createElement("div");
-        p.classList.add("memory-particle");
+    document.getElementById("chatScreen").style.display = "none";
+    document.getElementById("page5Menu").style.display = "flex";
+}
 
-        p.style.left = Math.random() * 100 + "vw";
-        p.style.animationDuration = (5 + Math.random() * 6) + "s";
-        p.style.opacity = Math.random();
 
-        page3.appendChild(p);
+// CHAT FLOW
+function chatStep(choice){
 
-        setTimeout(() => {
-            p.remove();
-        }, 12000);
+    let chat = document.getElementById("chatWindow");
+    let options = document.getElementById("chatOptions");
+
+    let userMessages = {
+        1: "How are you?",
+        2: "Do you miss me?",
+        3: "Tell me something"
+    };
+
+    let replies = {
+        1: "I'm okay... but better when you're here 💜",
+        2: "More than I should admit...",
+        3: "I don't say it often, but you matter a lot."
+    };
+
+    chat.innerHTML += `<div class="msg user">${userMessages[choice]}</div>`;
+
+    setTimeout(()=>{
+
+        chat.innerHTML += `<div class="msg bot">${replies[choice]}</div>`;
+
+        chat.scrollTop = chat.scrollHeight;
+
+        chatState++;
+
+        if(chatState === 3){
+
+            options.innerHTML = `
+                <div class="ig-btn" onclick="showPage('page4')">⏮ Back</div>
+                <div class="ig-btn" onclick="showPage('page6')">⏭ Continue</div>
+            `;
+        }
+
+    },700);
+}
+// ================= ARYA CHAT =================
+
+let aryaStep = 0;
+
+function aryaChat(choice){
+
+    const chat = document.getElementById("aryaChatBody");
+    const options = document.getElementById("aryaOptions");
+
+    let userText = "";
+    let botText = "";
+
+    // STEP 1
+    if(aryaStep === 0){
+
+        if(choice === 1){
+            userText = "How are you?";
+            botText = "Better now that you're here 💜";
+        }
+
+        if(choice === 2){
+            userText = "Do you miss me?";
+            botText = "More often than I'd like to admit...";
+        }
+
+        if(choice === 3){
+            userText = "Tell me something";
+            botText = "You have no idea how special you are.";
+        }
+
+        addChat(userText, botText);
+
+        options.innerHTML = `
+            <div class="ig-btn" onclick="aryaChat(4)">
+                Really?
+            </div>
+
+            <div class="ig-btn" onclick="aryaChat(5)">
+                Why?
+            </div>
+        `;
+
+        aryaStep = 1;
+    }
+
+    // STEP 2
+    else if(aryaStep === 1){
+
+        if(choice === 4){
+            userText = "Really?";
+            botText = "Yeah. Some people leave a bigger impact than they realize.";
+        }
+
+        if(choice === 5){
+            userText = "Why?";
+            botText = "Because every memory with you became one of my favourites.";
+        }
+
+        addChat(userText, botText);
+
+        options.innerHTML = `
+            <div class="ig-btn" onclick="aryaChat(6)">
+                That's sweet
+            </div>
+
+            <div class="ig-btn" onclick="aryaChat(7)">
+                Continue...
+            </div>
+        `;
+
+        aryaStep = 2;
+    }
+
+    // STEP 3
+    else if(aryaStep === 2){
+
+        if(choice === 6){
+            userText = "That's sweet";
+            botText = "Only because it's true.";
+        }
+
+        if(choice === 7){
+            userText = "Continue...";
+            botText = "There were days you made better just by existing.";
+        }
+
+        addChat(userText, botText);
+
+        options.innerHTML = `
+            <div class="ig-btn" onclick="aryaChat(8)">
+                Aww 💜
+            </div>
+
+            <div class="ig-btn" onclick="aryaChat(9)">
+                Then?
+            </div>
+        `;
+
+        aryaStep = 3;
+    }
+
+    // STEP 4
+    else if(aryaStep === 3){
+
+        if(choice === 8){
+            userText = "Aww 💜";
+            botText = "You deserve every nice thing said about you.";
+        }
+
+        if(choice === 9){
+            userText = "Then?";
+            botText = "Then I realized some people become unforgettable.";
+        }
+
+        addChat(userText, botText);
+
+        options.innerHTML = `
+            <div class="ig-btn" onclick="aryaChat(10)">
+                Final message?
+            </div>
+        `;
+
+        aryaStep = 4;
+    }
+
+    // FINAL
+    else if(aryaStep === 4){
+
+        userText = "Final message?";
+        botText = "No matter where life takes us, you'll always be one of my favourite chapters. 💜";
+
+        addChat(userText, botText);
+
+        options.innerHTML = `
+            <div class="ig-btn" onclick="showPage('page6')">
+                Continue ➜
+            </div>
+        `;
+
+        aryaStep = 5;
     }
 }
 
-// run particles continuously
-setInterval(createParticles, 2500);
+function addChat(userText, botText){
+
+    const chat = document.getElementById("aryaChatBody");
+
+    chat.innerHTML += `
+        <div class="msg user">${userText}</div>
+    `;
+
+    setTimeout(()=>{
+
+        chat.innerHTML += `
+            <div class="msg bot">${botText}</div>
+        `;
+
+        chat.scrollTop = chat.scrollHeight;
+
+    },700);
+}
+function toggleStory(note){
+
+    const img = note.querySelector("img");
+
+    const overlay = document.getElementById("storyOverlay");
+
+    const storyImage = document.getElementById("storyImage");
+
+    storyImage.src = img.src;
+
+    overlay.classList.add("active");
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+    const overlay = document.getElementById("storyOverlay");
+
+    if(overlay){
+
+        overlay.addEventListener("click",()=>{
+
+            overlay.classList.remove("active");
+
+        });
+
+    }
+
+});
+function revealSecret(){
+
+    const chat = document.querySelector("#page5_6 .chat-body");
+
+    chat.innerHTML += `
+
+        <div class="msg bot">
+            Thank you for being part of my story.
+        </div>
+
+        <div class="msg bot">
+            Some people become memories.
+        </div>
+
+        <div class="msg bot">
+            You became one of my favourite ones. 💜
+        </div>
+
+    `;
+
+}
+
+// ================= PAGE 6 MUSIC =================
+
+const player = document.getElementById("musicPlayer");
+
+// AUDIO FADE-IN
+
+function fadeInAudio(audio){
+
+    audio.volume = 0;
+
+    audio.play().catch(err=>{
+        console.log(err);
+    });
+
+    let fade = setInterval(()=>{
+
+        if(audio.volume < 0.95){
+
+            audio.volume += 0.05;
+
+        }else{
+
+            audio.volume = 1;
+
+            clearInterval(fade);
+        }
+
+    },150);
+}
+
+// NORMAL SONGS
+
+function playSong(id){
+
+    const songs = {
+
+        1:"song1.mp3",
+        2:"song2.mp3",
+        3:"song3.mp3",
+        4:"song4.mp3"
+    };
+
+    const backgrounds = {
+
+        1:"bg1.jpg",
+        2:"bg2.jpg",
+        3:"bg3.jpg",
+        4:"bg4.jpg"
+    };
+
+    // stop current song
+
+    player.pause();
+
+    player.currentTime = 0;
+
+    // load new song
+
+    player.src = songs[id];
+
+    player.load();
+
+    // fade-in play
+
+    fadeInAudio(player);
+
+    // change background
+
+    document.getElementById("page6").style.backgroundImage =
+    `url('${backgrounds[id]}')`;
+
+    document.getElementById("secretMessage").innerHTML =
+    "🎵 Now Playing...";
+}
+
+// SECRET SONGS
+
+function secretSong(id){
+
+    const songs = {
+
+        1:"secret1.mp3",
+        2:"secret2.mp3",
+        3:"secret3.mp3",
+        4:"secret4.mp3"
+    };
+
+    const backgrounds = {
+
+        1:"secretbg1.jpg",
+        2:"secretbg2.jpg",
+        3:"secretbg3.jpg",
+        4:"secretbg4.jpg"
+    };
+
+    const messages = {
+
+        1:"✨ Hidden Memory Found",
+        2:"🌙 Secret Song Unlocked",
+        3:"💜 A Special Dedication",
+        4:"🎂 Ultimate Birthday Secret"
+    };
+
+    // stop current song
+
+    player.pause();
+
+    player.currentTime = 0;
+
+    // load secret song
+
+    player.src = songs[id];
+
+    player.load();
+
+    // fade-in play
+
+    fadeInAudio(player);
+
+    // secret background
+
+    document.getElementById("page6").style.backgroundImage =
+    `url('${backgrounds[id]}')`;
+
+    document.getElementById("secretMessage").innerHTML =
+    messages[id];
+
+    // hide secret message after 3 sec
+
+    setTimeout(()=>{
+
+        document.getElementById("secretMessage").innerHTML =
+        "🎵 Now Playing...";
+
+    },3000);
+}

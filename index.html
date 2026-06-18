@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Kanika 💜</title>
+    <title>Loading...</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="blackFade"></div>
-
-<!-- LOADER -->
+<!-- ================= LOADER PAGE ================= -->
 <div id="loader">
     <p id="loadingText">Loading...</p>
 
@@ -21,106 +19,568 @@
     </div>
 </div>
 
-<!-- PAGE 1 -->
-<div class="page" id="page1">
-    <h1>Dear Kanika</h1>
-
-    <img src="envelope.jpeg" id="envelopeImg" class="envelope-img" onclick="openEnvelope()">
-
-    <h3>Tap the envelope</h3>
-</div>
-
-<!-- PAGE 2 -->
+<!-- ================= PAGE 2 ENVELOPE ================= -->
 <div class="page" id="page2">
 
-    <div class="letter-container">
+    <h1 class="page2-title">
+        Dear Kanika 💜
+    </h1>
 
-        <h1 class="letter-title">💌 A Letter For You</h1>
+    <img
+        src="envelope.jpeg"
+        id="envelopeImg"
+        class="envelope-img"
+        onclick="openEnvelope()"
+    >
 
-        <div id="textDisplay" class="text-display">
-            Click a card to read something...
-        </div>
 
-        <div class="card-grid">
-            <div class="card" onclick="showText(0)">When I miss you</div>
-            <div class="card" onclick="showText(1)">When you feel low</div>
-            <div class="card" onclick="showText(2)">Random thought</div>
-            <div class="card" onclick="showText(3)">Something I never said</div>
-        </div>
-
-    </div>
-
-    <button onclick="nextPage(3)">Next →</button>
 </div>
 
-<!-- PAGE 3 -->
+<!-- BLACK TRANSITION -->
+<div id="blackFade"></div>
+
+<!-- ================= PAGE 3 TEXTBOX ================= -->
+
 <div class="page" id="page3">
 
-    <h1>📸 Memory Gallery</h1>
+    <h1 class="page3-title">
+        💌 A Letter For You
+    </h1>
 
-    <!-- IMAGE VIEWER -->
-    <div class="memory-viewer">
-        <img id="memoryImg" src="1.webp" alt="memory">
+    <!-- MAIN BOX -->
+    <div class="text-display" id="textDisplay">
+
+        Click a card to read something...
+
     </div>
 
-    <!-- CAPTION -->
-    <div id="memoryText" class="memory-text">
+
+    <!-- FOUR CARDS -->
+    <div class="card-grid">
+
+        <div class="card" onclick="showText(0)">
+            When I miss you
+        </div>
+
+        <div class="card" onclick="showText(1)">
+            When you feel low
+        </div>
+
+        <div class="card" onclick="showText(2)">
+            Random thought
+        </div>
+
+        <div class="card" onclick="showText(3)">
+            Something I never said
+        </div>
+
+    </div>
+  <div class="page3-nav">
+
+    <!-- PAGE 3 NAVIGATION -->
+<div class="page3-nav">
+
+    <div class="nav-btn next-btn" onclick="showPage('page4')">
+        ✨ Continue →
+    </div>
+
+</div>
+</div>
+</div>
+
+<!-- ================= PAGE 4 ================= -->
+<div class="page" id="page4">
+
+    <h1 class="page4-title">
+        📸 Memory Gallery
+    </h1>
+
+    <!-- IMAGE -->
+    <div class="memory-viewer">
+
+        <img
+        id="memoryImg"
+        src="1.webp"
+        alt="memory">
+
+    </div>
+
+    <!-- TEXT -->
+    <div class="memory-text" id="memoryText">
+
         Every picture has a story...
+
     </div>
 
     <!-- SLIDER -->
-    <input type="range" min="0" max="6" value="0" id="memorySlider">
+    <input
+    type="range"
+    min="0"
+    max="6"
+    value="0"
+    id="memorySlider">
 
-    <button onclick="nextPage(2)">Back</button>
-    <button onclick="nextPage(4)">Next</button>
+<div class="page4-buttons">
+
+    <button class="page4-prev-btn" onclick="showPage('page3')">
+        ⬅ Prev
+    </button>
+
+    <button class="page4-next-btn" onclick="showPage('page5')">
+        Next ➡
+    </button>
 
 </div>
 
-<!-- PAGE 4 -->
-<div class="page" id="page4">
-    <h1>🎂 Surprise Section</h1>
-    <button onclick="nextPage(3)">Back</button>
-    <button onclick="nextPage(5)">Next</button>
 </div>
 
-<!-- PAGE 5 -->
+<!-- ================= PAGE 5 ================= -->
+<!-- ================= PAGE 5 : INSTAGRAM INBOX ================= -->
+
 <div class="page" id="page5">
-    <h1>💖 Things I Like About You</h1>
-    <button onclick="nextPage(4)">Back</button>
-    <button onclick="nextPage(6)">Next</button>
+
+    <!-- TOP BAR -->
+    <div class="ig-topbar">
+
+        <div class="ig-back" onclick="showPage('page4')">
+            ←
+        </div>
+
+        <div class="ig-title">
+            buildbyarya
+        </div>
+
+        <div class="ig-icons">
+            📷 ✏️
+        </div>
+
+    </div>
+
+    <!-- SEARCH -->
+    <div class="ig-search">
+
+        <input
+        type="text"
+        placeholder="Search">
+
+    </div>
+
+    <!-- NOTES -->
+    <div class="ig-notes">
+
+    <div class="note" onclick="toggleStory(this)">
+
+        <img src="arya.jpg">
+
+        <span>Arya</span>
+
+    </div>
+
+    <div class="note" onclick="toggleStory(this)">
+
+        <img src="person2.jpg">
+
+        <span>Friend 1</span>
+
+    </div>
+
+    <div class="note" onclick="toggleStory(this)">
+
+        <img src="person3.jpg">
+
+        <span>Friend 2</span>
+
+    </div>
+
+</div>
+<div id="storyOverlay">
+
+    <img id="storyImage">
+
+</div>
+    <!-- MESSAGE HEADER -->
+
+    <div class="msg-header">
+
+        <span>Messages</span>
+
+        <span
+        class="request-btn"
+        onclick="showPage('page5_5')">
+
+            Requests
+
+        </span>
+
+    </div>
+
+    <!-- CHAT LIST -->
+
+    <div
+    class="chat-row"
+    onclick="showPage('page5_1')">
+
+        <div class="chat-name">
+            Arya 💜
+        </div>
+
+        <div class="chat-preview">
+            Hey... I was waiting for you 💜
+        </div>
+
+    </div>
+
+
+    <div
+    class="chat-row"
+    onclick="showPage('page5_2')">
+
+        <div class="chat-name">
+            Random Chat 1
+        </div>
+
+        <div class="chat-preview">
+            Placeholder message...
+        </div>
+
+    </div>
+
+
+    <div
+    class="chat-row"
+    onclick="showPage('page5_3')">
+
+        <div class="chat-name">
+            Random Chat 2
+        </div>
+
+        <div class="chat-preview">
+            Placeholder message...
+        </div>
+
+    </div>
+
+
+    <div
+    class="chat-row"
+    onclick="showPage('page5_4')">
+
+        <div class="chat-name">
+            Random Chat 3
+        </div>
+
+        <div class="chat-preview">
+            Placeholder message...
+        </div>
+
+    </div>
+
 </div>
 
-<!-- PAGE 6 -->
+
+
+<!-- ================= PAGE 5.1 : ARYA CHAT ================= -->
+
+<div class="page" id="page5_1">
+
+    <div class="chat-header">
+
+        <div onclick="showPage('page5')">
+            ←
+        </div>
+
+        <div>
+            Arya 💜
+        </div>
+
+    </div>
+
+    <div class="chat-body" id="aryaChatBody">
+
+    <div class="msg bot">
+        Hey... I was waiting for you 💜
+    </div>
+
+</div>
+
+<div class="ig-options" id="aryaOptions">
+
+    <div class="ig-btn" onclick="aryaChat(1)">
+        How are you?
+    </div>
+
+    <div class="ig-btn" onclick="aryaChat(2)">
+        Do you miss me?
+    </div>
+
+    <div class="ig-btn" onclick="aryaChat(3)">
+        Tell me something
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= PAGE 5.2 ================= -->
+
+<div class="page" id="page5_2">
+
+    <div class="chat-header">
+
+        <div onclick="showPage('page5')">
+            ←
+        </div>
+
+        <div>
+            Random Chat 1
+        </div>
+
+    </div>
+
+    <div class="chat-body">
+
+        <div class="msg bot">
+            Placeholder Chat 1
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= PAGE 5.3 ================= -->
+
+<div class="page" id="page5_3">
+
+    <div class="chat-header">
+
+        <div onclick="showPage('page5')">
+            ←
+        </div>
+
+        <div>
+            Random Chat 2
+        </div>
+
+    </div>
+
+    <div class="chat-body">
+
+        <div class="msg bot">
+            Placeholder Chat 2
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= PAGE 5.4 ================= -->
+
+<div class="page" id="page5_4">
+
+    <div class="chat-header">
+
+        <div onclick="showPage('page5')">
+            ←
+        </div>
+
+        <div>
+            Random Chat 3
+        </div>
+
+    </div>
+
+    <div class="chat-body">
+
+        <div class="msg bot">
+            Placeholder Chat 3
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= PAGE 5.5 : REQUESTS ================= -->
+
+<div class="page" id="page5_5">
+
+    <div class="chat-header">
+
+        <div onclick="showPage('page5')">
+            ←
+        </div>
+
+        <div>
+            Requests
+        </div>
+
+    </div>
+
+    <div class="chat-body">
+
+        <div
+        class="chat-row"
+        onclick="showPage('page5_6')">
+
+            <div class="chat-name">
+                Secret Message 💌
+            </div>
+
+            <div class="chat-preview">
+                1 Message Request
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= PAGE 5.6 : SECRET CHAT ================= -->
+
+<div class="page" id="page5_6">
+
+    <div class="chat-header">
+
+        <div onclick="showPage('page5_5')" style="cursor:pointer;">
+            ←
+        </div>
+
+        <div>
+            Unknown User ✨
+        </div>
+
+    </div>
+
+    <div class="chat-body secret-chat" id="secretChatBody">
+
+        <div class="msg bot">
+            Hey.
+        </div>
+
+        <div class="msg bot">
+            I wasn't sure if I should send this.
+        </div>
+
+        <div class="msg bot">
+            But today felt like the right day.
+        </div>
+
+        <div class="msg bot">
+            Happy Birthday 💜
+        </div>
+
+        <div class="msg bot">
+            I hope you never forget how loved,
+            appreciated and special you are.
+        </div>
+
+        <div class="msg bot">
+            That's all.
+        </div>
+
+        <div class="msg bot">
+            Or maybe not...
+        </div>
+
+        <div class="msg bot">
+            Scroll a little further ↓
+        </div>
+
+        <div class="ig-options">
+
+            <div class="ig-btn" onclick="revealSecret()">
+                Reveal Final Message 💜
+            </div>
+
+            <div class="ig-btn" onclick="showPage('page5_5')">
+                Back
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= PAGE 6 : SONGS & EASTER EGGS ================= -->
+
 <div class="page" id="page6">
-    <h1>😂 Funny Memories</h1>
-    <button onclick="nextPage(5)">Back</button>
-    <button onclick="nextPage(7)">Next</button>
+
+    <!-- STARS -->
+
+    <div id="starField">
+
+        <div class="star secret1" onclick="secretSong(1)">⭐</div>
+
+        <div class="star normal1">⭐</div>
+
+        <div class="star secret2" onclick="secretSong(2)">⭐</div>
+
+        <div class="star normal2">⭐</div>
+
+        <div class="star secret3" onclick="secretSong(3)">⭐</div>
+
+        <div class="star normal3">⭐</div>
+
+        <div class="star secret4" onclick="secretSong(4)">⭐</div>
+
+    </div>
+
+    <h1 class="music-title">
+        🎵 Soundtrack Of Us
+    </h1>
+
+
+    <!-- SONGS -->
+<div class="song-grid"></div>
+    <div class="song-grid">
+
+        <div class="song-box" onclick="playSong(1)">
+            💜 Masterpiece
+        </div>
+
+        <div class="song-box" onclick="playSong(2)">
+            🌙 Fine Melody
+        </div>
+
+        <div class="song-box" onclick="playSong(3)">
+            ✨ Memories
+        </div>
+
+        <div class="song-box" onclick="playSong(4)">
+            🎂 Emotions
+        </div>
+
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="page4-buttons">
+
+        <button onclick="showPage('page5')">
+            ⬅ Prev
+        </button>
+
+        <button onclick="showPage('page7')">
+            Next ➡
+        </button>
+
+    </div>
+
 </div>
 
-<!-- PAGE 7 -->
-<div class="page" id="page7">
-    <h1>🎵 Music & Vibes</h1>
-    <button onclick="nextPage(6)">Back</button>
-    <button onclick="nextPage(8)">Next</button>
-</div>
+<audio id="musicPlayer" preload="auto"></audio>
 
-<!-- PAGE 8 -->
-<div class="page" id="page8">
-    <h1>🌈 Final Message</h1>
-    <button onclick="nextPage(7)">Back</button>
-    <button onclick="nextPage(9)">Next</button>
-</div>
 
-<!-- PAGE 9 -->
-<div class="page" id="page9">
-    <h1>💖 Happy Birthday Kanika</h1>
-    <p>End message here...</p>
 
-    <button onclick="nextPage(8)">Back</button>
-    <button onclick="nextPage(2)">Restart 🔁</button>
-</div>
+
+
 
 <script src="script.js"></script>
-
 </body>
 </html>
