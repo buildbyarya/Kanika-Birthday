@@ -686,20 +686,27 @@ html,body{
 /* ================= PAGE 5 ================= */
 
 #page5{
+
     z-index:40;
 
     display:none;
+
     flex-direction:column;
 
-    height:100%;
-    width:100%;
+    width:100vw;
+
+    height:100vh;
 
     background:#0c0c0f;
+
     color:white;
 
-    overflow:hidden;
-}
+    overflow-y:auto;
 
+    overflow-x:hidden;
+
+    -webkit-overflow-scrolling:touch;
+}
 /* PAGE 5 */
 
 #page5_1,
@@ -763,12 +770,37 @@ html,body{
 /* NOTES */
 
 .ig-notes{
+
     display:flex;
+
     gap:15px;
 
     padding:15px;
 
+    min-height:95px;
+
     overflow-x:auto;
+
+    overflow-y:hidden;
+
+    flex-shrink:0;
+
+    scrollbar-width:none;
+}
+
+.ig-notes::-webkit-scrollbar{
+
+    display:none;
+}
+.chat-list{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    -webkit-overflow-scrolling:touch;
 }
 
 .note{
@@ -913,7 +945,9 @@ html,body{
 
     flex:1;
 
-    overflow:auto;
+    overflow-y:auto;
+
+    overflow-x:hidden;
 
     padding:15px;
 
@@ -928,6 +962,8 @@ html,body{
     background-position:center;
 
     position:relative;
+
+    -webkit-overflow-scrolling:touch;
 }
 
 .chat-body::before{
