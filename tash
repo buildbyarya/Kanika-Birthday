@@ -1,0 +1,120 @@
+[1mdiff --git a/script.js b/script.js[m
+[1mindex b1b1309..6801fed 100644[m
+[1m--- a/script.js[m
+[1m+++ b/script.js[m
+[36m@@ -30,7 +30,15 @@[m [mfunction showPage(pageId){[m
+ [m
+ // ================= PAGE 1 : LOADER =================[m
+ [m
+[31m-window.onload = function () {[m
+[32m+[m[32mfunction startLoader(){[m
+[32m+[m
+[32m+[m[32m    let loader = document.getElementById("loader");[m
+[32m+[m[32m    let text = document.getElementById("loadingText");[m
+[32m+[m[32m    let progress = document.getElementById("progress");[m
+[32m+[m
+[32m+[m[32m    // RESET[m
+[32m+[m[32m    loader.style.opacity = "1";[m
+[32m+[m[32m    progress.style.width = "0%";[m
+ [m
+     let messages = [[m
+         "📸 Collecting memories...",[m
+[36m@@ -39,9 +47,6 @@[m [mwindow.onload = function () {[m
+         "🎂 Almost ready..."[m
+     ];[m
+ [m
+[31m-    let text = document.getElementById("loadingText");[m
+[31m-    let progress = document.getElementById("progress");[m
+[31m-[m
+     let i = 0;[m
+     let value = 0;[m
+ [m
+[36m@@ -54,14 +59,12 @@[m [mwindow.onload = function () {[m
+ [m
+         i++;[m
+ [m
+[31m-        if (i >= messages.length) {[m
+[32m+[m[32m        if(i >= messages.length){[m
+ [m
+             clearInterval(interval);[m
+ [m
+             setTimeout(() => {[m
+ [m
+[31m-                let loader = document.getElementById("loader");[m
+[31m-[m
+                 loader.style.transition = "0.8s ease";[m
+                 loader.style.opacity = "0";[m
+ [m
+[36m@@ -69,18 +72,15 @@[m [mwindow.onload = function () {[m
+ [m
+                     loader.style.display = "none";[m
+ [m
+[31m-                    // ✅ START FLOW HERE[m
+                     showPage("page2");[m
+ [m
+[31m-                }, 800);[m
+[31m-[m
+[31m-            }, 500);[m
+[32m+[m[32m                },800);[m
+ [m
+[32m+[m[32m            },500);[m
+         }[m
+ [m
+[31m-    }, 700);[m
+[31m-[m
+[31m-};[m
+[32m+[m[32m    },700);[m
+[32m+[m[32m}[m
+ [m
+ [m
+ // ================= PAGE 2 ENVELOPE =================[m
+[36m@@ -814,6 +814,9 @@[m [mfunction showPage(pageId){[m
+         target.style.display = "flex";[m
+     }[m
+ }[m
+[32m+[m
+[32m+[m[32m//--------------------extras-------------------//[m
+[32m+[m
+ function unlockWebsite(){[m
+ [m
+     const password =[m
+[36m@@ -826,12 +829,14 @@[m [mfunction unlockWebsite(){[m
+ [m
+         setTimeout(()=>{[m
+ [m
+[31m-            document.getElementById("passwordScreen")[m
+[31m-            .style.display = "none";[m
+[31m-[m
+[31m-            startFlowers();[m
+[32m+[m[32m    document.getElementById("passwordScreen")[m
+[32m+[m[32m    .style.display = "none";[m
+ [m
+[31m-        },1000);[m
+[32m+[m[32m    document.getElementById("loader")[m
+[32m+[m[32m    .style.display = "flex";[m
+[32m+[m[32m     console.log("password accepted");[m
+[32m+[m[32m     startLoader();[m
+[32m+[m[32m     },1000);[m
+ [m
+     }else{[m
+ [m
+[36m@@ -871,4 +876,16 @@[m [mfunction startFlowers(){[m
+ }[m
+ document.body.style.transition = "2s";[m
+ document.body.style.background =[m
+[31m-"linear-gradient(135deg,#ffd6e7,#fff0f8,#ffe5f5)";[m
+\ No newline at end of file[m
+[32m+[m[32m"linear-gradient(135deg,#ffd6e7,#fff0f8,#ffe5f5)";[m
+[32m+[m
+[32m+[m[32m// EXTRAS[m
+[32m+[m
+[32m+[m[32mdocument.addEventListener("DOMContentLoaded", () => {[m
+[32m+[m
+[32m+[m[32m    document.querySelectorAll(".page").forEach(page => {[m
+[32m+[m
+[32m+[m[32m        page.style.display = "none";[m
+[32m+[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m});[m
+\ No newline at end of file[m

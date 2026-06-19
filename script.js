@@ -814,6 +814,11 @@ function showPage(pageId){
         target.style.display = "flex";
     }
 }
+
+//extra//
+
+let wrongAttempts = 0;
+
 function unlockWebsite(){
 
     const password =
@@ -826,18 +831,51 @@ function unlockWebsite(){
 
         setTimeout(()=>{
 
-            document.getElementById("passwordScreen")
-            .style.display = "none";
+    document.getElementById("passwordScreen")
+    .style.display = "none";
 
-            startFlowers();
+    const music =
+    document.getElementById("bgMusic");
 
-        },1000);
+    music.volume = 0.15;
+
+    music.play();
+
+    startFlowers();
+
+},1000);
 
     }else{
 
-        document.getElementById("passwordError")
-        .innerHTML =
-        "Access Denied.";
+        wrongAttempts++;
+
+        if(wrongAttempts >= 3){
+
+            document.getElementById("passwordError")
+            .innerHTML =
+            "💕 Try again JANAB";
+
+        }else if(wrongAttempts >= 2){
+
+            document.getElementById("passwordError")
+            .innerHTML =
+            "💖 You're getting closer...";
+
+        }else{
+
+            document.getElementById("passwordError")
+            .innerHTML =
+            "Access Denied.";
+        }
+
+        const lock =
+        document.getElementById("lockIcon");
+
+        lock.classList.remove("shake");
+
+        void lock.offsetWidth;
+
+        lock.classList.add("shake");
     }
 }
 function startFlowers(){
