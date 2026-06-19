@@ -288,21 +288,21 @@ function showNotification(text){
 function fakeWhatsapp(){
 
     showNotification(
-        "💚 WhatsApp: Someone is thinking about you..."
+        "💚 WhatsApp: Ohh My God, you have my number..."
     );
 }
 // ================= telegram =================
 function fakeTelegram(){
 
     showNotification(
-        "✈️ Telegram: Happy Birthday Kanika 💜"
+        "💙 Telegram: You never told me Mam"
     );
 }
 // ================= discord =================
 function fakeDiscord(){
 
     showNotification(
-        "🎮 Discord: New message from Secret Admirer"
+        "🎮 Discord: Do you even use it Mam"
     );
 }
 // ================= instagram =================
@@ -363,6 +363,61 @@ function chatStep(choice){
         }
 
     },700);
+}
+function openPhoto(img,text){
+
+    document.getElementById("viewerImg").src =
+    img.src;
+
+    document.getElementById("viewerCaption")
+    .innerText = text;
+
+    document.getElementById("photoViewer")
+    .classList.add("active");
+}
+
+function closePhoto(){
+
+    document.getElementById("photoViewer")
+    .classList.remove("active");
+}
+function openGalleryImage(imgSrc, caption, element){
+
+    const overlay = document.getElementById("galleryOverlay");
+    const fullImg = document.getElementById("galleryFullImage");
+    const text = document.getElementById("galleryCaption");
+
+    const rect = element.getBoundingClientRect();
+
+    fullImg.src = imgSrc;
+    text.innerText = caption;
+
+    fullImg.style.top = rect.top + "px";
+    fullImg.style.left = rect.left + "px";
+    fullImg.style.width = rect.width + "px";
+    fullImg.style.height = rect.height + "px";
+
+    overlay.classList.add("active");
+
+    requestAnimationFrame(() => {
+
+        fullImg.classList.add("zoomed");
+
+    });
+}
+
+function closeGalleryImage(){
+
+    const overlay = document.getElementById("galleryOverlay");
+    const fullImg = document.getElementById("galleryFullImage");
+
+    fullImg.classList.remove("zoomed");
+
+    setTimeout(() => {
+
+        overlay.classList.remove("active");
+
+    }, 350);
 }
 // ================= ARYA CHAT =================
 

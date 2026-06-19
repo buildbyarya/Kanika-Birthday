@@ -185,8 +185,12 @@
 </div>
 
 <!-- ================= 5 PHONE HOME SCREEN ================= -->
-
 <div class="page" id="page5">
+
+    <img
+        src="phonewallpaper.jpg"
+        class="phone-wallpaper"
+    >
 
     <div class="phone-status">
 
@@ -200,7 +204,63 @@
 
         <div class="app-icon" onclick="openInstagram()">
 
-            <img src="instagram.png">
+            <img src="instagram.jfif">
+
+            <span>Instagram</span>
+
+        </div>
+
+        <div class="app-icon" onclick="fakeWhatsapp()">
+
+            <img src="whatsapp.png">
+
+            <span>WhatsApp</span>
+
+        </div>
+
+        <div class="app-icon" onclick="fakeTelegram()">
+
+            <img src="telegram.png">
+
+            <span>Telegram</span>
+
+        </div>
+
+        <div class="app-icon" onclick="fakeDiscord()">
+
+            <img src="discord.png">
+
+            <span>Discord</span>
+
+        </div>
+        <div class="app-icon" onclick="showPage('page5_gallery')">
+
+    <img src="gallery.webp">
+
+    <span>Gallery</span>
+
+</div>
+
+    </div>
+<div id="fakeNotification"></div>
+<div class="page" id="page5">
+
+    <!-- WALLPAPER -->
+    <img src="phonewallpaper.jpg" class="phone-wallpaper">
+
+    <div class="phone-status">
+
+        <span>9:41</span>
+
+        <span>📶 🔋</span>
+
+    </div>
+
+    <div class="app-grid">
+
+        <div class="app-icon" onclick="openInstagram()">
+
+            <img src="instagram.jfif">
 
             <span>Instagram</span>
 
@@ -231,9 +291,83 @@
         </div>
 
     </div>
-<div id="fakeNotification"></div>
-</div>
 
+    <div id="fakeNotification"></div>
+
+</div>
+</div>
+<!-- ================= GALLERY ================= -->
+
+<div class="page" id="page5_gallery">
+
+    <div class="gallery-header">
+
+        <div onclick="showPage('page5')">
+            ←
+        </div>
+
+        <div>
+            Gallery 💜
+        </div>
+
+    </div>
+
+    <div class="gallery-grid">
+
+        <img src="pic1.jpg" onclick="openPhoto(this,'The day everything changed 💜',
+this)">
+
+        <img src="pic2.jpg" onclick="openPhoto(this,'One of my favourite memories',
+this)">
+
+        <img src="pic3.jpg" onclick="openPhoto(this,'Still makes me smile',
+this)">
+
+        <img src="pic4.jpg" onclick="openPhoto(this,'A beautiful moment',
+this)">
+
+        <img src="pic5.jpg" onclick="openPhoto(this,'Forever unforgettable',
+this)">
+
+        <img src="pic6.jpg" onclick="openPhoto(this,'You looked amazing here',
+this)">
+
+        <img src="pic7.jpg" onclick="openPhoto(this,'One more memory to keep',
+this)">
+
+        <img src="pic8.jpg" onclick="openPhoto(this,'This one deserved a place here',
+this)">
+
+        <img src="pic9.jpg" onclick="openPhoto(this,'Some moments stay forever',
+this)">
+
+        <img src="pic10.jpg" onclick="openPhoto(this,'Happy Birthday 💜',
+this)">
+
+    </div>
+
+</div>
+<div id="photoViewer" onclick="closePhoto()">
+
+    <img id="viewerImg">
+
+    <div id="viewerCaption"></div>
+
+</div>
+<div id="galleryOverlay" onclick="closeGalleryImage()">
+
+    <img id="galleryFullImage">
+
+    <div id="galleryCaption"></div>
+
+</div>
+<div id="galleryOverlay" onclick="closeGalleryImage()">
+
+    <img id="galleryFullImage">
+
+    <div id="galleryCaption"></div>
+
+</div>
 <!-- ================= PAGE 5 : INSTAGRAM INBOX ================= -->
 
 <div class="page" id="page5_0">
@@ -384,7 +518,7 @@
 
     <div class="chat-header">
 
-        <div onclick="showPage('page5')">
+        <div onclick="showPage('page5_0')">
             ←
         </div>
 
@@ -428,7 +562,7 @@
 
     <div class="chat-header">
 
-        <div onclick="showPage('page5')">
+        <div onclick="showPage('page5_0')">
             ←
         </div>
 
@@ -456,7 +590,7 @@
 
     <div class="chat-header">
 
-        <div onclick="showPage('page5')">
+        <div onclick="showPage('page5_0')">
             ←
         </div>
 
@@ -483,7 +617,7 @@
 
     <div class="chat-header">
 
-        <div onclick="showPage('page5')">
+        <div onclick="showPage('page5_0')">
             ←
         </div>
 
@@ -638,7 +772,7 @@
 
     <button
     class="song-prev"
-    onclick="showPage('page5')">
+    onclick="showPage('page5_0')">
 
         ⬅ Prev
 

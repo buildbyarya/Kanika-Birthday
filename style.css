@@ -883,19 +883,40 @@ html,body{
 /* ================= 5 phone screen 5 ================= */
 #page5{
 
+    position:relative;
+
+    overflow:hidden;
+}
+
+.phone-wallpaper{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:0;
+}
+
+.phone-status,
+.app-grid,
+#fakeNotification{
+
+    position:relative;
+
+    z-index:2;
+}
+#page5-home{
+
     background-image:url("phonewallpaper.jpg");
-
     background-size:cover;
-
     background-position:center;
-
-    display:none;
-
-    flex-direction:column;
-
-    height:100vh;
-
-    color:white;
+ 
 }
 
 .phone-status{
@@ -946,6 +967,8 @@ html,body{
 
 .app-icon span{
 
+    color:white;
+
     margin-top:8px;
 
     font-size:14px;
@@ -974,9 +997,144 @@ html,body{
 
     z-index:9999;
 }
+/* GALLERY PAGE */
+
+#page5_gallery{
+
+    display:none;
+
+    flex-direction:column;
+
+    width:100vw;
+
+    height:100vh;
+
+    background:#111;
+
+    color:white;
+}
+
+/* HEADER */
+
+.gallery-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+/* GRID */
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+    padding:15px;
+
+    overflow-y:auto;
+}
+
+.gallery-grid img{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.gallery-grid img:hover{
+
+    transform:scale(1.03);
+}
+
+/* FULLSCREEN */
+
+#photoViewer{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.95);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:99999;
+}
+
+#photoViewer.active{
+
+    display:flex;
+}
+
+#viewerImg{
+
+    max-width:95%;
+
+    max-height:80%;
+
+    border-radius:20px;
+
+    animation:zoomPhoto .35s ease;
+}
+
+#viewerCaption{
+
+    color:white;
+
+    margin-top:20px;
+
+    text-align:center;
+
+    padding:0 20px;
+
+    font-size:16px;
+}
+
+@keyframes zoomPhoto{
+
+    from{
+
+        transform:scale(.7);
+
+        opacity:0;
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+    }
+}
 /* ================= PAGE 5 ================= */
 
-#page5{
+#page5_0{
 
     display:none;
 
@@ -1442,7 +1600,6 @@ html,body{
     background-size:cover;
 
     background-position:center;
-}
 }
 .ig-topbar,
 .ig-search,
