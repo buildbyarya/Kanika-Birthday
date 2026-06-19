@@ -87,41 +87,67 @@ window.onload = function () {
 
 function openEnvelope(){
 
-    let envelope = document.getElementById("envelopeImg");
-    let page2 = document.getElementById("page2");
-    let black = document.getElementById("blackFade");
+    const container =
+    document.getElementById("envelopeContainer");
 
-    // 🔴 LOCK EVERYTHING IMMEDIATELY
+    const page2 =
+    document.getElementById("page2");
+
+    const black =
+    document.getElementById("blackFade");
+
     hideUI();
 
-    // prevent multiple clicks (IMPORTANT FIX)
-    envelope.onclick = null;
+    container.onclick = null;
 
-    // start animation
-    envelope.classList.add("zoom");
-    page2.classList.add("fade");
+    /* STEP 1:
+       CLOSED → OPEN ENVELOPE */
 
-    // 🔴 INSTANT BLACK (no delay = no flash)
-    black.classList.add("active");
+    container.classList.add("opening");
 
-    // 🔴 SWITCH PAGE WHILE SCREEN IS 100% BLACK
-    setTimeout(() => {
+    /* STEP 2:
+       WAIT FOR OPENING */
+
+    setTimeout(()=>{
+
+        container.classList.add("zooming");
+
+        page2.classList.add("fade");
+
+    },1200);
+
+    /* STEP 3:
+       GO BLACK */
+
+    setTimeout(()=>{
+
+        black.classList.add("active");
+
+    },1800);
+
+    /* STEP 4:
+       SWITCH PAGE */
+
+    setTimeout(()=>{
 
         showPage("page3");
 
-    }, 600);
+    },2400);
 
-    // 🔴 REMOVE BLACK AFTER PAGE IS READY
-    setTimeout(() => {
+    /* STEP 5:
+       REMOVE BLACK */
+
+    setTimeout(()=>{
 
         black.classList.remove("active");
 
-        // restore UI AFTER everything is stable
-        setTimeout(() => {
-            showUI();
-        }, 300);
+        setTimeout(()=>{
 
-    }, 1200);
+            showUI();
+
+        },300);
+
+    },3200);
 }
 
 
@@ -694,3 +720,61 @@ function showPage(pageId){
         target.style.display = "flex";
     }
 }
+function unlockWebsite(){
+
+    const password =
+    document.getElementById("passwordInput").value;
+
+    if(password.toLowerCase() === "janab"){
+
+        document.getElementById("passwordScreen")
+        .style.opacity = "0";
+
+        setTimeout(()=>{
+
+            document.getElementById("passwordScreen")
+            .style.display = "none";
+
+            startFlowers();
+
+        },1000);
+
+    }else{
+
+        document.getElementById("passwordError")
+        .innerHTML =
+        "Access Denied.";
+    }
+}
+function startFlowers(){
+
+    setInterval(()=>{
+
+        const flower =
+        document.createElement("div");
+
+        flower.className = "flower";
+
+        flower.innerHTML = "🌸";
+
+        flower.style.left =
+        Math.random()*100 + "vw";
+
+        flower.style.animationDuration =
+        (5 + Math.random()*5) + "s";
+
+        document
+        .getElementById("flowerContainer")
+        .appendChild(flower);
+
+        setTimeout(()=>{
+
+            flower.remove();
+
+        },10000);
+
+    },500);
+}
+document.body.style.transition = "2s";
+document.body.style.background =
+"linear-gradient(135deg,#ffd6e7,#fff0f8,#ffe5f5)";

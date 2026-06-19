@@ -1,3 +1,124 @@
+/* PASSWORD SCREEN */
+
+#passwordScreen{
+
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle,#350000,#000);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+
+    transition:
+    opacity 2s ease,
+    transform 2s ease;
+}
+
+/* AFTER CORRECT PASSWORD */
+
+#passwordScreen.unlocking{
+
+    opacity:0;
+
+    transform:scale(1.15);
+
+    filter:blur(15px);
+}
+
+.danger-box{
+
+    text-align:center;
+
+    padding:40px;
+
+    border:2px solid red;
+
+    border-radius:20px;
+
+    color:white;
+
+    background:rgba(0,0,0,.7);
+
+    box-shadow:
+    0 0 40px red;
+}
+
+.danger-box input{
+
+    margin-top:20px;
+
+    padding:12px;
+
+    width:250px;
+
+    border:none;
+
+    border-radius:10px;
+}
+
+.danger-box button{
+
+    margin-top:15px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:red;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+#passwordError{
+
+    color:#ff7b7b;
+
+    margin-top:15px;
+}
+
+#flowerContainer{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:5;
+}
+
+.flower{
+
+    position:absolute;
+
+    top:-50px;
+
+    font-size:24px;
+
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+    from{
+        transform:translateY(-50px) rotate(0deg);
+    }
+
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+
 *{
     margin:0;
     padding:0;
@@ -160,6 +281,7 @@ html,body{
 /* ================= PAGE 2 ENVELOPE ================= */
 
 #page2{
+
     position:fixed;
     inset:0;
 
@@ -170,50 +292,125 @@ html,body{
 
     gap:20px;
 
-    background:linear-gradient(135deg,#ffe6f0,#ffd6e8,#fff0f7);
+    background:linear-gradient(
+        135deg,
+        #ffe6f0,
+        #ffd6e8,
+        #fff0f7
+    );
+
     color:#5a2140;
 
     z-index:10;
-}
 
-/* TITLE */
-.page2-title{
-    font-size:34px;
-}
-
-/* ENVELOPE */
-.envelope-img{
-    width:180px;
-    cursor:pointer;
-    transition:transform 2s cubic-bezier(.22,1,.36,1);
-}
-
-.envelope-img.zoom{
-    transform:scale(25);
-}
-
-/* HINT */
-.hint{
-    opacity:.7;
-}
-
-/* PAGE 2 CONTENT FADE */
-#page2{
     transition:opacity .8s ease;
 }
 
+/* TITLE */
+
+.page2-title{
+
+    font-size:34px;
+
+    text-align:center;
+}
+
+/* ENVELOPE CONTAINER */
+
+#envelopeContainer{
+
+    position:relative;
+
+    width:220px;
+    height:220px;
+
+    cursor:pointer;
+}
+
+/* BOTH IMAGES */
+
+.envelope-img{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+/* OPEN ENVELOPE HIDDEN INITIALLY */
+
+.open-envelope{
+
+    opacity:0;
+
+    transform:scale(.9);
+}
+
+/* OPENING ANIMATION */
+
+#envelopeContainer.opening #closedEnvelope{
+
+    opacity:0;
+
+    transform:scale(.8);
+}
+
+#envelopeContainer.opening #openEnvelope{
+
+    opacity:1;
+
+    transform:scale(1);
+
+    animation:envelopePulse 1.5s infinite;
+}
+
+@keyframes envelopePulse{
+
+    0%,100%{
+
+        transform:scale(1);
+    }
+
+    50%{
+
+        transform:scale(1.05);
+    }
+}
+
+/* ZOOM EFFECT */
+
+#envelopeContainer.zooming{
+
+    transform:scale(20);
+
+    transition:
+    transform 2s cubic-bezier(.22,1,.36,1);
+}
+
+/* PAGE FADE */
+
 #page2.fade{
+
     opacity:0;
 }
 
 /* BLACK TRANSITION */
+
 #blackFade{
+
     position:fixed;
     inset:0;
 
     background:black;
 
     opacity:0;
+
     pointer-events:none;
 
     transition:.8s;
@@ -222,9 +419,9 @@ html,body{
 }
 
 #blackFade.active{
+
     opacity:1;
 }
-
 /* ================= PAGE 3 : TEXTBOX ================= */
 
 /* ================= PAGE 3 ================= */
