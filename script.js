@@ -453,21 +453,22 @@ function addChat(userText, botText){
     const chat = document.getElementById("aryaChatBody");
 
     chat.innerHTML += `
-        <div class="msg user">${userText}</div>
+        <div class="msg user">
+            ${userText}
+        </div>
     `;
 
     setTimeout(()=>{
 
-    chat.innerHTML += `
-        <div class="msg bot">
-            ${reply}
-        </div>
-    `;
+        chat.innerHTML += `
+            <div class="msg bot">
+                ${botText}
+            </div>
+        `;
 
-    // AUTO SCROLL TO BOTTOM
-    chat.scrollTop = chat.scrollHeight;
+        chat.scrollTop = chat.scrollHeight;
 
-},700);
+    },700);
 }
 function toggleStory(note){
 
