@@ -268,10 +268,49 @@ window.addEventListener("DOMContentLoaded",()=>{
     });
 
 });
+// ================= PAGE 5 phone screen =================
+function showNotification(text){
 
+    const box =
+    document.getElementById("fakeNotification");
+
+    box.innerHTML = text;
+
+    box.style.opacity = "1";
+
+    setTimeout(()=>{
+
+        box.style.opacity = "0";
+
+    },3000);
+}
+// ================= whatsapp =================
+function fakeWhatsapp(){
+
+    showNotification(
+        "💚 WhatsApp: Someone is thinking about you..."
+    );
+}
+// ================= telegram =================
+function fakeTelegram(){
+
+    showNotification(
+        "✈️ Telegram: Happy Birthday Kanika 💜"
+    );
+}
+// ================= discord =================
+function fakeDiscord(){
+
+    showNotification(
+        "🎮 Discord: New message from Secret Admirer"
+    );
+}
+// ================= instagram =================
+function openInstagram(){
+
+    showPage("page5_0");
+}
 // ================= PAGE 5 insta ui =================
-
-
 let chatState = 0;
 
 function openAryaChat(){
