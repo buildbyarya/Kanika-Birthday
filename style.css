@@ -1207,26 +1207,84 @@ html,body{
 }
 
 
+/* SONG BOXES */
+
 .song-box{
 
-    padding:30px;
+    padding:22px;
 
     text-align:center;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    background:rgba(255,255,255,0.12);
-
-    backdrop-filter:blur(10px);
+    color:white;
 
     cursor:pointer;
 
-    transition:.3s;
+    font-weight:600;
+
+    backdrop-filter:blur(12px);
+
+    transition:.35s;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.25);
 }
+
+/* SONG 1 */
+
+.song-box:nth-child(1){
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,105,180,.65),
+        rgba(255,20,147,.45)
+    );
+}
+
+/* SONG 2 */
+
+.song-box:nth-child(2){
+
+    background:linear-gradient(
+        135deg,
+        rgba(106,90,255,.65),
+        rgba(72,61,255,.45)
+    );
+}
+
+/* SONG 3 */
+
+.song-box:nth-child(3){
+
+    background:linear-gradient(
+        135deg,
+        rgba(0,206,209,.65),
+        rgba(0,139,139,.45)
+    );
+}
+
+/* SONG 4 */
+
+.song-box:nth-child(4){
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,170,0,.65),
+        rgba(255,119,0,.45)
+    );
+}
+
+/* HOVER EFFECT */
 
 .song-box:hover{
 
-    transform:scale(1.05);
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+    box-shadow:
+    0 15px 35px rgba(255,255,255,.2);
 }
 
 /* STARS */
@@ -1350,31 +1408,6 @@ html,body{
     z-index:10;
 }
 
-/* SONG BOX */
-
-.song-box{
-
-    padding:22px;
-
-    text-align:center;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.15);
-
-    backdrop-filter:blur(10px);
-
-    color:white;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.song-box:hover{
-
-    transform:scale(1.05);
-}
 
 /* NAVIGATION */
 
