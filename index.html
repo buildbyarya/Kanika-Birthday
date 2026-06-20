@@ -1,6 +1,8 @@
 
 <div id="passwordScreen">
 
+<div id="floatingHearts"></div>
+
     <div class="danger-box">
 
         <div id="lockIcon">🔒</div>
@@ -208,6 +210,15 @@
 
     <div class="app-grid">
 
+         <!-- SECRET HEART -->
+
+    <div id="secretHeart"
+     onclick="startCakeSurprise()">
+
+    💜
+
+</div>
+
         <div class="app-icon" onclick="openInstagram()">
 
             <img src="instagram.jfif">
@@ -244,6 +255,8 @@
     <img src="gallery.webp">
 
     <span>Gallery</span>
+    </div>
+
 
 <!-- NOTIFICATION CENTER -->
 
@@ -275,8 +288,6 @@
 
 </div>
 
-    </div>
-
     <!-- NEW MESSAGE POPUP -->
 
 <div id="messagePopup" onclick="openNotifications()">
@@ -288,6 +299,7 @@
 </div>
 
     </div>
+
 <div id="fakeNotification"></div>
 <div class="page" id="page5">
 
@@ -336,12 +348,12 @@
 
         </div>
 
+       </div>  <!-- app-grid -->
+
     </div>
 
-    <div id="fakeNotification"></div>
+</div>
 
-</div>
-</div>
 <!-- ================= GALLERY ================= -->
 
 <div class="page" id="page5_gallery">
@@ -407,21 +419,15 @@ this)">
     <div id="galleryCaption"></div>
 
 </div>
-<div id="galleryOverlay" onclick="closeGalleryImage()">
-
-    <img id="galleryFullImage">
-
-    <div id="galleryCaption"></div>
-
-</div>
 <!-- ================= PAGE 5 : INSTAGRAM INBOX ================= -->
 
 <div class="page" id="page5_0">
 
+
     <!-- TOP BAR -->
     <div class="ig-topbar">
 
-        <div class="ig-back" onclick="showPage('page4')">
+        <div class="ig-back" onclick="showPage('page5')">
             ←
         </div>
 
@@ -767,6 +773,30 @@ this)">
 
 </div>
 
+<<!-- ================= CAKE SCENE ================= -->
+
+<div id="cakeScene">
+
+    <div id="closeCakeScene"
+         onclick="closeCakeScene()">
+        ✕
+    </div>
+
+<div id="birthdayText">
+
+        𝐻𝒶𝓅𝓅𝓎 𝐵𝒾𝓇𝓉𝒽𝒹𝒶𝓎 𝒦𝒶𝓃𝒾𝓀𝒶
+    </div>
+
+    <div id="leftHand">🤚</div>
+
+    <div id="cake">
+        <img id="cakeImage" src="cake.png">
+    </div>
+
+    <div id="rightHand">🤚</div>
+
+</div>
+
 <!-- ================= PAGE 6 : SONGS & EASTER EGGS ================= -->
 
 <div class="page" id="page6">
@@ -839,12 +869,65 @@ this)">
 <audio id="musicPlayer" preload="auto"></audio>
 
 
+<audio id="birthdaySong">
 
+    <source src="birthdaySong.mp3"
+            type="audio/mpeg">
 
+</audio>
 
 <audio id="bgMusic" loop>
     <source src="muisc.mp3" type="audio/mpeg">
 </audio>
+
+<!-- ================= PAGE 7 FINAL ================= -->
+
+<div class="page" id="page7">
+
+    <div id="finalEmojiShower"></div>
+
+    <h1 id="finalTitle">
+
+        HAPPY BIRTHDAY TO YOU KANIKA 💜
+
+    </h1>
+
+    <div id="finalMessage">
+
+        Always keep smiling.<br><br>
+
+        You've always motivated me,<br>
+        and I will always adore your elegant personality.<br><br>
+
+        Thank you for being such a beautiful part of my memories 🌸💜
+
+    </div>
+
+    <div class="finalButtons">
+
+        <button onclick="showPage('page6')">
+
+            ⬅ Back
+
+        </button>
+
+        <button onclick="showPage('page2')">
+
+            🔄 Restart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
 
 <script src="script.js"></script>
 </body>

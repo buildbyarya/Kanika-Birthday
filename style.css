@@ -1,4 +1,4 @@
-/* PAGE 0 PASSWORD SCREEN */
+/* PASSWORD SCREEN */
 
 #passwordScreen{
 
@@ -6,7 +6,14 @@
     inset:0;
 
     background:
-    radial-gradient(circle,#350000,#000);
+    linear-gradient(
+    135deg,
+    #ffd6e7,
+    #fff0f8,
+    #ffe5f5
+    );
+
+ overflow:hidden;
 
     display:flex;
     justify-content:center;
@@ -17,6 +24,46 @@
     transition:
     opacity 2s ease,
     transform 2s ease;
+}
+
+#floatingHearts{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+}
+
+.floatingHeart{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    animation:
+    floatHeart linear forwards;
+
+    opacity:.8;
+}
+
+@keyframes floatHeart{
+
+    from{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+    }
+
+    to{
+
+        transform:
+        translateY(-120vh)
+        rotate(360deg);
+    }
 }
 
 /* AFTER CORRECT PASSWORD */
@@ -911,6 +958,118 @@ html,body{
     overflow:hidden;
 }
 
+/* ================= SECRET HEART BUTTON ================= */
+
+#secretHeart{
+
+    position:absolute;
+
+    bottom:80px;
+    right:25px;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    animation:heartGlow 2s infinite ease-in-out;
+
+    z-index:500;
+}
+
+@keyframes heartGlow{
+
+    0%{
+
+        transform:scale(1);
+
+        filter:
+        drop-shadow(0 0 3px #ff66cc);
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+        filter:
+        drop-shadow(0 0 12px #ff66cc);
+    } 
+
+    100%{
+
+        transform:scale(1);
+
+        filter:
+        drop-shadow(0 0 3px #ff66cc);
+    }
+}
+
+/* ================= SURPRISE OVERLAY ================= */
+
+#surpriseOverlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+}
+
+.surprise-box{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    width:80%;
+
+    max-width:320px;
+
+    animation:popIn .4s ease;
+}
+
+.surprise-box button{
+
+    margin-top:15px;
+
+    padding:10px 20px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+}
+
+@keyframes popIn{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:0;
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+    }
+}
+
+/*             phone stuff            */
 .phone-wallpaper{
 
     position:absolute;
@@ -2004,7 +2163,7 @@ html,body{
     z-index:100;
 }
 
-/* BUTTONS */
+/*                     BUTTONS                     */
 
 .song-prev,
 .song-next{
@@ -2048,4 +2207,396 @@ html,body{
 .song-next:hover{
 
     transform:scale(1.05);
+}
+
+/*                       CAKE                           */
+
+#cakeScene{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.85);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    overflow:hidden;
+}
+
+#leftHand,
+#rightHand{
+
+    position:absolute;
+
+    font-size:90px;
+
+    transition:1.5s ease;
+}
+
+#leftHand{
+
+    left:-200px;
+}
+
+#rightHand{
+
+    right:-200px;
+}
+
+#cake{
+
+    font-size:120px;
+
+    opacity:0;
+
+    transform:scale(.5);
+
+    transition:1s ease;
+}
+
+#cakeScene.show #leftHand{
+
+    left:20%;
+}
+
+#cakeScene.show #rightHand{
+
+    right:20%;
+}
+
+#cakeScene.show #cake{
+
+    opacity:1;
+
+    transform:scale(1);
+}
+#closeCakeScene{
+
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    color:white;
+}
+#cake{
+
+    opacity:0;
+
+    transform:scale(.5);
+
+    transition:1s ease;
+}
+
+#cakeImage{
+
+    width:220px;
+
+    transition:.8s ease;
+}
+
+.cakeCut{
+
+    transform:
+    rotate(-8deg)
+    scale(.95);
+}
+
+#balloonScene{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    overflow:hidden;
+
+    z-index:100000;
+
+    pointer-events:none;
+}
+
+.balloon{
+
+    position:absolute;
+
+    bottom:-100px;
+
+    font-size:60px;
+
+    animation:floatUp 6s linear forwards;
+}
+
+.balloon:nth-child(1){ left:10%; }
+.balloon:nth-child(2){ left:25%; }
+.balloon:nth-child(3){ left:40%; }
+.balloon:nth-child(4){ left:55%; }
+.balloon:nth-child(5){ left:70%; }
+.balloon:nth-child(6){ left:85%; }
+
+@keyframes floatUp{
+
+    from{
+
+        transform:translateY(0);
+    }
+
+    to{
+
+        transform:translateY(-120vh);
+    }
+}
+.balloon{
+
+    position:fixed;
+
+    bottom:-100px;
+
+    pointer-events:none;
+
+    z-index:100000;
+
+    animation:balloonFloat linear forwards;
+}
+
+@keyframes balloonFloat{
+
+    from{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+    }
+
+    to{
+
+        transform:
+        translateY(-120vh)
+        rotate(30deg);
+    }
+}
+
+#birthdayText{
+
+    position:absolute;
+
+    bottom:120px;
+
+    width:100%;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    opacity:0;
+
+    transition:1s ease;
+}
+
+#cakeScene.show #birthdayText{
+
+    opacity:1;
+}
+
+/* ================= FINAL PAGE ================= */
+
+#page7{
+
+    overflow:hidden;
+
+    background:
+
+    radial-gradient(circle at 20% 20%,
+    rgba(255,120,220,.6),
+    transparent),
+
+    radial-gradient(circle at 80% 30%,
+    rgba(130,120,255,.5),
+    transparent),
+
+    radial-gradient(circle at 50% 80%,
+    rgba(255,220,120,.5),
+    transparent),
+
+    linear-gradient(
+    135deg,
+    #ffd6e7,
+    #fff0f8,
+    #e7ddff
+    );
+
+    text-align:center;
+}
+
+#finalTitle{
+
+    margin-top:80px;
+
+    font-size:42px;
+
+    color:white;
+
+    text-shadow:
+    0 0 15px #ff66cc;
+}
+
+#finalMessage{
+
+    margin-top:40px;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:white;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.5);
+}
+
+.finalButtons{
+
+    display:flex;
+
+    gap:15px;
+}
+
+.finalButtons button{
+
+    margin:10px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    background:#ff85c2;
+
+    color:white;
+
+    font-size:18px;
+}
+
+
+.finalEmoji{
+
+    position:fixed;
+
+    top:-50px;
+
+    z-index:10;
+
+    pointer-events:none;
+
+    animation:
+    finalEmojiFall linear forwards;
+}
+
+@keyframes finalEmojiFall{
+
+    from{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+    }
+
+    to{
+
+        transform:
+        translateY(120vh)
+        rotate(360deg);
+    }
+}
+
+#page7{
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    background:
+
+    radial-gradient(circle at 20% 20%,
+    rgba(255,120,220,.6),
+    transparent),
+
+    radial-gradient(circle at 80% 30%,
+    rgba(130,120,255,.5),
+    transparent),
+
+    radial-gradient(circle at 50% 80%,
+    rgba(255,220,120,.5),
+    transparent),
+
+    linear-gradient(
+    135deg,
+    #ffd6e7,
+    #fff0f8,
+    #e7ddff
+    );
+}
+#finalTitle{
+
+    margin-bottom:30px;
+}
+#finalMessage{
+
+    max-width:700px;
+
+    margin-bottom:40px;
+
+    line-height:1.8;
+}
+doesnt exist:
+#finalTitle{
+
+color:black;
+
+text-shadow:
+0 0 10px rgba(255,255,255,.5);
+
+    position:relative;
+
+    z-index:1000;
+}
+.finalButtons{
+
+    position:relative;
+
+    z-index:1000;
+}
+#finalMessage{
+
+    position:relative;
+
+color:black;
+
+    z-index:1000;
 }

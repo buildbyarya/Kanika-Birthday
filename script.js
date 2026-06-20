@@ -10,7 +10,57 @@ function showUI(){
         el.classList.remove("hidden-ui");
     });
 }
+
+function startFloatingHearts(){
+
+    setInterval(()=>{
+
+        const heart =
+        document.createElement("div");
+
+        heart.classList.add("floatingHeart");
+
+        const hearts = [
+
+            "💜",
+            "💖",
+            "💕",
+            "🌸",
+            "✨"
+
+        ];
+
+        heart.innerHTML =
+        hearts[Math.floor(
+        Math.random()*hearts.length
+        )];
+
+        heart.style.left =
+        Math.random()*100 + "vw";
+
+        heart.style.fontSize =
+        (15 + Math.random()*30) + "px";
+
+        heart.style.animationDuration =
+        (6 + Math.random()*8) + "s";
+
+        document
+        .getElementById("floatingHearts")
+        .appendChild(heart);
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },15000);
+
+    },500);
+
+}
+startFloatingHearts();
+
 // SINGLE MASTER PAGE CONTROLLER (KEEP ONLY THIS ONE)
+
 function showPage(pageId){
 
     document.querySelectorAll(".page").forEach(page=>{
@@ -957,3 +1007,197 @@ function startFlowers(){
 document.body.style.transition = "2s";
 document.body.style.background =
 "linear-gradient(135deg,#ffd6e7,#fff0f8,#ffe5f5)";
+
+//          cake cutting            //
+function startCakeSurprise(){
+
+    const scene =
+    document.getElementById("cakeScene");
+
+    scene.style.display = "flex";
+
+    const song =
+    document.getElementById("birthdaySong");
+
+    setTimeout(()=>{
+
+        scene.classList.add("show");
+
+    },800);
+setTimeout(()=>{
+
+    const bg =
+    document.getElementById("bgMusic");
+
+    let fade = setInterval(()=>{
+
+        if(bg.volume > 0.02){
+
+            bg.volume -= 0.02;
+
+        }else{
+
+            bg.pause();
+
+            bg.volume = 0.15;
+
+            clearInterval(fade);
+        }
+
+    },100);
+
+    song.volume = 0;
+
+    song.play();
+
+    let fadeIn = setInterval(()=>{
+
+        if(song.volume < 0.98){
+
+            song.volume += 0.02;
+
+        }else{
+
+            clearInterval(fadeIn);
+
+        }
+
+    },100);
+
+},2500);
+
+setTimeout(()=>{
+
+    document
+    .getElementById("cakeImage")
+    .classList.add("cakeCut");
+
+},5500);
+
+}
+function closeCakeScene(){
+
+    document
+    .getElementById("cakeScene")
+    .style.display = "none";
+
+    document
+    .getElementById("cakeScene")
+    .classList.remove("show");
+}
+
+document
+.getElementById("birthdaySong")
+.addEventListener("ended",()=>{
+
+    launchBalloons();
+
+    setTimeout(()=>{
+
+        showPage("page7");
+
+        startFinalEmojiShower();
+
+    },4000);
+
+});
+
+function launchBalloons(){
+
+    for(let i=0;i<60;i++){
+
+        setTimeout(()=>{
+
+            const balloon =
+            document.createElement("div");
+
+            balloon.classList.add("balloon");
+
+            balloon.innerHTML = "⬤";
+
+            const colors = [
+
+    "#ff4d6d",
+    "#ff85a1",
+    "#ffd166",
+    "#06d6a0",
+    "#4cc9f0",
+    "#c77dff"
+
+];
+
+balloon.style.color =
+colors[Math.floor(
+Math.random()*colors.length
+)];
+
+            balloon.style.left =
+            Math.random()*100 + "vw";
+
+            balloon.style.fontSize =
+            (40 + Math.random()*70) + "px";
+
+            balloon.style.animationDuration =
+            (4 + Math.random()*6) + "s";
+
+            document.body.appendChild(balloon);
+
+            setTimeout(()=>{
+
+                balloon.remove();
+
+            },10000);
+
+        },i*200);
+
+    }
+
+}
+
+//             last page             //
+function startFinalEmojiShower(){
+
+    const emojis = [
+
+        "✨","❤️","🧡","💛","💚","🩵","💙","💜",
+        "🩷","💗","💓","💞","💕","💘","💝","💖",
+        "♥️","❣️","⭐","🌟",
+        "🌸","🌺","🌷","🌹","🌻","💐",
+        "🎂","🍰","🍨","🍦","🧁",
+        "🍫","🍭","🍬","🍩","🍪",
+        "🎉","🎊","🎈","🎀","🎁",
+        "🎇","🎆","🪅","🪩","💠"
+
+    ];
+
+    setInterval(()=>{
+
+        const emoji =
+        document.createElement("div");
+
+        emoji.className = "finalEmoji";
+
+        emoji.innerHTML =
+        emojis[Math.floor(
+        Math.random()*emojis.length)];
+
+        emoji.style.left =
+        Math.random()*100 + "vw";
+
+        emoji.style.fontSize =
+        (20 + Math.random()*50) + "px";
+
+        emoji.style.animationDuration =
+        (3 + Math.random()*5) + "s";
+
+        document.body.appendChild(emoji);
+
+        setTimeout(()=>{
+
+            emoji.remove();
+
+        },10000);
+
+    },100);
+
+}
