@@ -30,7 +30,7 @@ function showPage(pageId){
 
 // ================= PAGE 1 : LOADER =================
 
-window.onload = function () {
+function startLoader() {
 
     let messages = [
         "📸 Collecting memories...",
@@ -80,7 +80,7 @@ window.onload = function () {
 
     }, 700);
 
-};
+}
 
 
 // ================= PAGE 2 ENVELOPE =================
@@ -309,6 +309,29 @@ function fakeDiscord(){
 function openInstagram(){
 
     showPage("page5_0");
+    startMessagePopup();
+}
+// ================= MESSAGE POPUP =================
+
+let popupShown = false;
+
+function startMessagePopup(){
+
+    if(popupShown) return;
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("messagePopup")
+        .classList.add("show");
+
+    },3000);
+
+}
+function openNotifications(){
+
+    alert("Notifications coming next ❤️");
+
 }
 // ================= PAGE 5 insta ui =================
 let chatState = 0;
@@ -703,6 +726,11 @@ function playSong(id){
         4:"bg4.jpg"
     };
 
+    const bgMusic =
+document.getElementById("bgMusic");
+
+bgMusic.pause();
+
     // stop current song
 
     player.pause();
@@ -833,6 +861,13 @@ function unlockWebsite(){
 
     document.getElementById("passwordScreen")
     .style.display = "none";
+
+    document.getElementById("loader")
+    .style.display = "flex";
+
+    console.log("starting loader");
+
+    startLoader();
 
     const music =
     document.getElementById("bgMusic");

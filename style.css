@@ -903,7 +903,7 @@ html,body{
 
     background:rgba(255,255,255,0.3);
 }
-/* ================= 5 phone screen 5 ================= */
+/* ================= page 5 phone screen 5 ================= */
 #page5{
 
     position:relative;
@@ -1154,6 +1154,43 @@ html,body{
 
         opacity:1;
     }
+}
+/* ================= MESSAGE POPUP ================= */
+
+#messagePopup{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    padding:12px 18px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.2);
+
+    font-size:14px;
+
+    cursor:pointer;
+
+    z-index:999;
+
+    opacity:0;
+
+    transform:translateY(-20px);
+
+    transition:.5s ease;
+}
+
+#messagePopup.show{
+
+    opacity:1;
+
+    transform:translateY(0);
 }
 /* ================= PAGE 5 ================= */
 
