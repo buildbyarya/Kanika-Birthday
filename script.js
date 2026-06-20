@@ -330,8 +330,20 @@ function startMessagePopup(){
 }
 function openNotifications(){
 
-    alert("Notifications coming next ❤️");
+    document
+    .getElementById("notificationCenter")
+    .classList.add("show");
 
+    document
+    .getElementById("messagePopup")
+    .style.display = "none";
+}
+
+function closeNotifications(){
+
+    document
+    .getElementById("notificationCenter")
+    .classList.remove("show");
 }
 // ================= PAGE 5 insta ui =================
 let chatState = 0;
