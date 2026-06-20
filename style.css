@@ -2475,14 +2475,18 @@ html,body{
 
     display:flex;
 
-    gap:15px;
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:12px;
+
+    width:100%;
 }
 
 .finalButtons button{
 
-    margin:10px;
-
-    padding:12px 25px;
+    padding:12px 20px;
 
     border:none;
 
@@ -2494,9 +2498,10 @@ html,body{
 
     color:white;
 
-    font-size:18px;
-}
+    font-size:16px;
 
+    max-width:140px;
+}
 
 .finalEmoji{
 
