@@ -281,11 +281,11 @@ const memoryImages = [
 const memoryTexts = [
     "Every picture has a story...",
     "That day still feels like a memory I can replay in my head.",
-    "We didn't realize it then, but this moment mattered a lot.",
     "One of those random days that became unforgettable.",
-    "Smiles that I'll always remember.",
-    "A moment I wish I could freeze forever.",
-    "And this… this is one of my favorite memories of all."
+    "We didn't realize it then, but these moments mattered a lot.",
+    "Those eyes I'll always remember.",
+    "Moments I wish I could freeze forever.",
+    "And these are my favorite memories of all."
 ];
 
 
@@ -723,15 +723,11 @@ function revealSecret(){
     chat.innerHTML += `
 
         <div class="msg bot">
-            Thank you for being part of my story.
+            Cheers to another fantastic trip around the sun.
         </div>
 
         <div class="msg bot">
-            Some people become memories.
-        </div>
-
-        <div class="msg bot">
-            You became one of my favourite ones. 💜
+            Happy Birthday 💜
         </div>
 
     `;
@@ -769,7 +765,22 @@ function fadeInAudio(audio){
 }
 
 // NORMAL SONGS
+function resumeMusicAndGo(){
 
+    const bgMusic =
+    document.getElementById("bgMusic");
+
+    bgMusic.volume = 0.15;
+
+    if(bgMusic.paused){
+
+        bgMusic.play();
+
+    }
+
+    showPage("page7");
+
+}
 function playSong(id){
 
     const songs = {
@@ -821,6 +832,27 @@ bgMusic.pause();
 // SECRET SONGS
 
 function secretSong(id){
+
+const bgMusic =
+document.getElementById("bgMusic");
+
+let fade = setInterval(()=>{
+
+    if(bgMusic.volume > 0.02){
+
+        bgMusic.volume -= 0.02;
+
+    }else{
+
+        bgMusic.pause();
+
+        bgMusic.volume = 0.15;
+
+        clearInterval(fade);
+
+    }
+
+},100);
 
     const songs = {
 
@@ -1086,22 +1118,26 @@ function closeCakeScene(){
     .classList.remove("show");
 }
 
-document
-.getElementById("birthdaySong")
-.addEventListener("ended",()=>{
+const birthdaySong =
+document.getElementById("birthdaySong");
 
-    launchBalloons();
+if(birthdaySong){
 
-    setTimeout(()=>{
+    birthdaySong.addEventListener("ended",()=>{
 
-        showPage("page7");
+        launchBalloons();
 
-        startFinalEmojiShower();
+        setTimeout(()=>{
 
-    },4000);
+            showPage("page7");
 
+            startFinalEmojiShower();
 
-});
+        },4000);
+
+    });
+
+}
 
 function launchBalloons(){
 
@@ -1200,5 +1236,22 @@ function startFinalEmojiShower(){
         },10000);
 
     },100);
+
+}
+
+function resumeMusicAndGo(){
+
+    const bgMusic =
+    document.getElementById("bgMusic");
+
+    bgMusic.volume = 0.15;
+
+    if(bgMusic.paused){
+
+        bgMusic.play();
+
+    }
+
+    showPage("page7");
 
 }
