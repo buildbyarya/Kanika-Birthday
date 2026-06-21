@@ -201,7 +201,7 @@ function openEnvelope(){
 }
 
 
-// ================= PAGE 8 TEXTBOX =================
+// ================= PAGE  TEXTBOX =================
 
 const texts = [
 
