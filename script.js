@@ -180,7 +180,7 @@ function openEnvelope(){
 
     setTimeout(()=>{
 
-        showPage("page3");
+        showPage("page4");
 
     },2400);
 
@@ -201,7 +201,7 @@ function openEnvelope(){
 }
 
 
-// ================= PAGE 3 TEXTBOX =================
+// ================= PAGE 8 TEXTBOX =================
 
 const texts = [
 
@@ -1099,6 +1099,7 @@ document
         startFinalEmojiShower();
 
     },4000);
+
 
 });
 

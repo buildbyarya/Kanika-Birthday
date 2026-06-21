@@ -492,11 +492,11 @@ html,body{
 
     opacity:1;
 }
-/* ================= PAGE 3 : TEXTBOX ================= */
+/* ================= PAGE 8 : TEXTBOX ================= */
 
-/* ================= PAGE 3 ================= */
+/* ================= PAGE 8 ================= */
 
-#page3{
+#page8{
 
     position:fixed;
     inset:0;
@@ -524,8 +524,8 @@ html,body{
 
 /* SOFT GLOW BLOBS */
 
-#page3::before,
-#page3::after{
+#page8::before,
+#page8::after{
 
     content:"";
 
@@ -543,7 +543,7 @@ html,body{
     z-index:0;
 }
 
-#page3::before{
+#page8::before{
 
     background:#ffb3c7;
 
@@ -551,7 +551,7 @@ html,body{
     left:-80px;
 }
 
-#page3::after{
+#page8::after{
 
     background:#ffd6e7;
 
@@ -561,7 +561,7 @@ html,body{
 
 /* CONTENT ABOVE BACKGROUND */
 
-#page3 > *{
+#page8 > *{
 
     position:relative;
 
@@ -570,7 +570,7 @@ html,body{
 
 /* TITLE */
 
-.page3-title{
+.page8-title{
 
     font-size:28px;
 
@@ -652,7 +652,7 @@ html,body{
 
 /* BUTTON AREA */
 
-.page3-nav{
+.page8-nav{
 
     margin-top:20px;
 
@@ -1916,7 +1916,7 @@ html,body{
 
 #page6{
 
-    background-image:url("songwallpaper.jpg");
+    background-image:url("songwallpaper.jpeg");
 
     background-size:cover;
 
