@@ -793,10 +793,10 @@ function playSong(id){
 
     const backgrounds = {
 
-        1:"bg1.jpg",
-        2:"bg2.jpg",
-        3:"bg3.jpg",
-        4:"bg4.jpg"
+        1:"jojo.gif",
+        2:"sally cat.gif",
+        3:"rain.gif",
+        4:"flowers.gif"
     };
 
     const bgMusic =
@@ -864,10 +864,10 @@ let fade = setInterval(()=>{
 
     const backgrounds = {
 
-        1:"secretbg1.jpg",
-        2:"secretbg2.jpg",
-        3:"secretbg3.jpg",
-        4:"secretbg4.jpg"
+        1:"rick roll.gif",
+        2:"secetbg2.jpg",
+        3:"sri ram.jpg",
+        4:"d2.gif"
     };
 
     const messages = {
