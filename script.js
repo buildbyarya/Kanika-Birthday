@@ -946,7 +946,7 @@ function unlockWebsite(){
     const password =
     document.getElementById("passwordInput").value;
 
-    if(password.toLowerCase() === "janab"){
+    if(password.toLowerCase() === "boxer"){
 
         document.getElementById("passwordScreen")
         .style.opacity = "0";
@@ -982,7 +982,7 @@ function unlockWebsite(){
 
             document.getElementById("passwordError")
             .innerHTML =
-            "💕 Try again JANAB";
+            "💕 Try again";
 
         }else if(wrongAttempts >= 2){
 
