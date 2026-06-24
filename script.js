@@ -1191,53 +1191,69 @@ Math.random()*colors.length
 
 }
 
-//             last page             //
-function startFinalEmojiShower(){
+///             last page             //
+let finalEmojiInterval = null;
+let finalEmojiTimeout = null;
+
+function startFinalEmojiShower() {
+    // Stop any existing shower first
+    if (finalEmojiInterval) clearInterval(finalEmojiInterval);
+    if (finalEmojiTimeout) clearTimeout(finalEmojiTimeout);
 
     const emojis = [
-
-        "✨","❤️","🧡","💛","💚","🩵","💙","💜",
+        "✨","❤️","🧡","💛","💚","🩵","💙","💜","💌","♥️","❣️","🏵️","🌼","💮","🌸","✨",
         "🩷","💗","💓","💞","💕","💘","💝","💖",
         "♥️","❣️","⭐","🌟",
         "🌸","🌺","🌷","🌹","🌻","💐",
         "🎂","🍰","🍨","🍦","🧁",
         "🍫","🍭","🍬","🍩","🍪",
-        "🎉","🎊","🎈","🎀","🎁",
-        "🎇","🎆","🪅","🪩","💠"
-
+        "🎉","🎊","🎈","🎀","🎁","🪅","💠"
     ];
 
-    setInterval(()=>{
-
-        const emoji =
-        document.createElement("div");
+    finalEmojiInterval = setInterval(() => {
+        const emoji = document.createElement("div");
 
         emoji.className = "finalEmoji";
 
-        emoji.innerHTML =
-        emojis[Math.floor(
-        Math.random()*emojis.length)];
+        emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
 
-        emoji.style.left =
-        Math.random()*100 + "vw";
+        emoji.style.left = Math.random() * 100 + "vw";
 
-        emoji.style.fontSize =
-        (20 + Math.random()*50) + "px";
+        emoji.style.fontSize = (20 + Math.random() * 50) + "px";
 
-        emoji.style.animationDuration =
-        (3 + Math.random()*5) + "s";
+        emoji.style.animationDuration = (3 + Math.random() * 5) + "s";
 
         document.body.appendChild(emoji);
 
-        setTimeout(()=>{
-
+        setTimeout(() => {
             emoji.remove();
+        }, 10000);
 
-        },10000);
+    }, 100);
 
-    },100);
-
+    // Auto-stop after 15 seconds
+    finalEmojiTimeout = setTimeout(() => {
+        stopFinalEmojiShower();
+    }, 15000); // 15000ms = 15 seconds
 }
+
+function stopFinalEmojiShower() {
+    if (finalEmojiInterval) {
+        clearInterval(finalEmojiInterval);
+        finalEmojiInterval = null;
+    }
+    if (finalEmojiTimeout) {
+        clearTimeout(finalEmojiTimeout);
+        finalEmojiTimeout = null;
+    }
+    // Remove any emojis still falling
+    document.querySelectorAll('.finalEmoji').forEach(e => e.remove());
+}
+
+// Also stop if user leaves page early
+window.addEventListener('beforeunload', stopFinalEmojiShower);
+
+//mmmmmmmmmmmmmm//
 
 function resumeMusicAndGo(){
 

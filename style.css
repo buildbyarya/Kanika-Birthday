@@ -1140,9 +1140,9 @@ html,body{
 
 .app-icon img{
 
-    width:70px;
+    width:45px;
 
-    height:70px;
+    height:45px;
 
     border-radius:18px;
 }
@@ -1153,7 +1153,7 @@ html,body{
 
     margin-top:8px;
 
-    font-size:14px;
+    font-size:10px;
 }
 #fakeNotification{
 
@@ -2264,12 +2264,12 @@ html,body{
 
 #cakeScene.show #leftHand{
 
-    left:20%;
+    left:55%;
 }
 
 #cakeScene.show #rightHand{
 
-    right:20%;
+    right:50%;
 }
 
 #cakeScene.show #cake{
@@ -2282,7 +2282,7 @@ html,body{
 
     position:absolute;
 
-    top:25px;
+    top: 15px;
 
     right:25px;
 
@@ -2308,12 +2308,6 @@ html,body{
     transition:.8s ease;
 }
 
-.cakeCut{
-
-    transform:
-    rotate(-8deg)
-    scale(.95);
-}
 
 #balloonScene{
 
